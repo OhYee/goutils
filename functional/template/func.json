@@ -1,0 +1,192 @@
+{
+    "variable": {
+        "$all_type": [
+            "string",
+            "int",
+            "int8",
+            "int16",
+            "int32",
+            "int64",
+            "uint8",
+            "uint16",
+            "uint32",
+            "uint64",
+            "float32",
+            "float64",
+            "byte",
+            "any"
+        ],
+        "$number_type": [
+            "int",
+            "int8",
+            "int16",
+            "int32",
+            "int64",
+            "uint8",
+            "uint16",
+            "uint32",
+            "uint64",
+            "byte",
+            "float32",
+            "float64"
+        ]
+    },
+    "files": [
+        {
+            "package": "fp",
+            "import": [],
+            "output": "../filter.go",
+            "body": [
+                {
+                    "template": "./filter.tpl",
+                    "args": "$all_type"
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [
+                "testing",
+                "reflect"
+            ],
+            "output": "../filter_test.go",
+            "body": [
+                {
+                    "template": [
+                        "./scaffold.tpl",
+                        "./filter_test.tpl"
+                    ],
+                    "args": {
+                        "function": "filter",
+                        "types": "$all_type"
+                    }
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [],
+            "output": "../map.go",
+            "body": [
+                {
+                    "template": "./map.tpl",
+                    "args": "$all_type"
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [
+                "testing",
+                "reflect"
+            ],
+            "output": "../map_test.go",
+            "body": [
+                {
+                    "template": [
+                        "./scaffold.tpl",
+                        "./map_test.tpl"
+                    ],
+                    "args": {
+                        "function": "map",
+                        "types": "$all_type"
+                    }
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [],
+            "output": "../reduce.go",
+            "body": [
+                {
+                    "template": "./reduce.tpl",
+                    "args": "$all_type"
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [
+                "testing",
+                "reflect",
+                "fmt"
+            ],
+            "output": "../reduce_test.go",
+            "body": [
+                {
+                    "template": [
+                        "./scaffold.tpl",
+                        "./reduce_test.tpl"
+                    ],
+                    "args": {
+                        "function": "reduce",
+                        "types": "$all_type"
+                    }
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [],
+            "output": "../all.go",
+            "body": [
+                {
+                    "template": "./all.tpl",
+                    "args": "$all_type"
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [
+                "testing",
+                "reflect"
+            ],
+            "output": "../all_test.go",
+            "body": [
+                {
+                    "template": [
+                        "./scaffold.tpl",
+                        "./all_test.tpl"
+                    ],
+                    "args": {
+                        "function": "all",
+                        "types": "$all_type"
+                    }
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [],
+            "output": "../any.go",
+            "body": [
+                {
+                    "template": "./any.tpl",
+                    "args": "$all_type"
+                }
+            ]
+        },
+        {
+            "package": "fp",
+            "import": [
+                "testing",
+                "reflect"
+            ],
+            "output": "../any_test.go",
+            "body": [
+                {
+                    "template": [
+                        "./scaffold.tpl",
+                        "./any_test.tpl"
+                    ],
+                    "args": {
+                        "function": "any",
+                        "types": "$all_type"
+                    }
+                }
+            ]
+        }
+    ]
+}

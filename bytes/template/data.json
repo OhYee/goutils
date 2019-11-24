@@ -1,0 +1,178 @@
+{
+    "variable": {},
+    "files": [
+        {
+            "package": "bytes",
+            "import": [
+                "encoding/binary"
+            ],
+            "output": "../int.go",
+            "body": [
+                {
+                    "template": "./int8.tpl",
+                    "args": ""
+                },
+                {
+                    "template": "./int.tpl",
+                    "args": [
+                        {
+                            "bit": 16,
+                            "byte": 2
+                        },
+                        {
+                            "bit": 32,
+                            "byte": 4
+                        },
+                        {
+                            "bit": 64,
+                            "byte": 8
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "package": "bytes",
+            "import": [
+                "encoding/binary",
+                "math"
+            ],
+            "output": "../float.go",
+            "body": [
+                {
+                    "template": "./float.tpl",
+                    "args": [
+                        {
+                            "bit": 32,
+                            "byte": 4
+                        },
+                        {
+                            "bit": 64,
+                            "byte": 8
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "package": "bytes",
+            "import": [
+                "testing",
+                "github.com/OhYee/goutils"
+            ],
+            "output": "../bytes_test.go",
+            "body": [
+                {
+                    "template": "./test_string.tpl",
+                    "args": {
+                        "testcases": [
+                            {
+                                "value": "abc",
+                                "b": "97,98,99"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "template": "./test.tpl",
+                    "args": [
+                        {
+                            "type": "uint8",
+                            "testcases": [
+                                {
+                                    "value": "25",
+                                    "b": "0x19"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "uint16",
+                            "testcases": [
+                                {
+                                    "value": "25*25",
+                                    "b": "0x02,0x71"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "uint32",
+                            "testcases": [
+                                {
+                                    "value": "25*25*25*25",
+                                    "b": "0x00,0x05,0xf5,0xe1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "uint64",
+                            "testcases": [
+                                {
+                                    "value": "25*25*25*25*25*25*25*25",
+                                    "b": "0x00,0x00,0x00,0x23,0x86,0xf2,0x6f,0xc1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "int8",
+                            "testcases": [
+                                {
+                                    "value": "25",
+                                    "b": "0x19"
+                                },
+                                {
+                                    "value": "-25",
+                                    "b": "0xE7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "int16",
+                            "testcases": [
+                                {
+                                    "value": "25*25",
+                                    "b": "0x02,0x71"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "int32",
+                            "testcases": [
+                                {
+                                    "value": "25*25*25*25",
+                                    "b": "0x00,0x05,0xf5,0xe1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "int64",
+                            "testcases": [
+                                {
+                                    "value": "25*25*25*25*25*25*25*25",
+                                    "b": "0x00,0x00,0x00,0x23,0x86,0xf2,0x6f,0xc1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "float32",
+                            "testcases": [
+                                {
+                                    "value": "1.0",
+                                    "b": "0x3f,0x80,0x00,0x00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "float64",
+                            "testcases": [
+                                {
+                                    "value": "1.0",
+                                    "b": "0x3f,0xf0,0x00,0x00,0x00,0x00,0x00,0x00"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

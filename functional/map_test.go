@@ -10,7 +10,7 @@ import (
 
 func TestMapString(t *testing.T) {
 	type args struct {
-		f     func(string) string
+		f     func(string, int) string
 		input []string
 	}
 	tests := []struct {
@@ -20,7 +20,7 @@ func TestMapString(t *testing.T) {
 	}{
 		{
 			name:       "add a 1 at the end of the string",
-			args:       args{f: func(s string) string { return s + "1" }, input: []string{"a", "bb", "ccc", "dddd"}},
+			args:       args{f: func(s string, idx int) string { return s + "1" }, input: []string{"a", "bb", "ccc", "dddd"}},
 			wantOutput: []string{"a1", "bb1", "ccc1", "dddd1"},
 		},
 	}
@@ -35,7 +35,7 @@ func TestMapString(t *testing.T) {
 
 func TestMapInt(t *testing.T) {
 	type args struct {
-		f     func(int) int
+		f     func(int, int) int
 		input []int
 	}
 	tests := []struct {
@@ -45,12 +45,12 @@ func TestMapInt(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n int) int { return n + 1 }, input: []int{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int, idx int) int { return n + 1 }, input: []int{1, 2, 3, 4, 5}},
 			wantOutput: []int{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n int) int { return n - 1 }, input: []int{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int, idx int) int { return n - 1 }, input: []int{1, 2, 3, 4, 5}},
 			wantOutput: []int{0, 1, 2, 3, 4},
 		},
 	}
@@ -65,7 +65,7 @@ func TestMapInt(t *testing.T) {
 
 func TestMapInt8(t *testing.T) {
 	type args struct {
-		f     func(int8) int8
+		f     func(int8, int) int8
 		input []int8
 	}
 	tests := []struct {
@@ -75,12 +75,12 @@ func TestMapInt8(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n int8) int8 { return n + 1 }, input: []int8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int8, idx int) int8 { return n + 1 }, input: []int8{1, 2, 3, 4, 5}},
 			wantOutput: []int8{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n int8) int8 { return n - 1 }, input: []int8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int8, idx int) int8 { return n - 1 }, input: []int8{1, 2, 3, 4, 5}},
 			wantOutput: []int8{0, 1, 2, 3, 4},
 		},
 	}
@@ -95,7 +95,7 @@ func TestMapInt8(t *testing.T) {
 
 func TestMapInt16(t *testing.T) {
 	type args struct {
-		f     func(int16) int16
+		f     func(int16, int) int16
 		input []int16
 	}
 	tests := []struct {
@@ -105,12 +105,12 @@ func TestMapInt16(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n int16) int16 { return n + 1 }, input: []int16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int16, idx int) int16 { return n + 1 }, input: []int16{1, 2, 3, 4, 5}},
 			wantOutput: []int16{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n int16) int16 { return n - 1 }, input: []int16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int16, idx int) int16 { return n - 1 }, input: []int16{1, 2, 3, 4, 5}},
 			wantOutput: []int16{0, 1, 2, 3, 4},
 		},
 	}
@@ -125,7 +125,7 @@ func TestMapInt16(t *testing.T) {
 
 func TestMapInt32(t *testing.T) {
 	type args struct {
-		f     func(int32) int32
+		f     func(int32, int) int32
 		input []int32
 	}
 	tests := []struct {
@@ -135,12 +135,12 @@ func TestMapInt32(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n int32) int32 { return n + 1 }, input: []int32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int32, idx int) int32 { return n + 1 }, input: []int32{1, 2, 3, 4, 5}},
 			wantOutput: []int32{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n int32) int32 { return n - 1 }, input: []int32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int32, idx int) int32 { return n - 1 }, input: []int32{1, 2, 3, 4, 5}},
 			wantOutput: []int32{0, 1, 2, 3, 4},
 		},
 	}
@@ -155,7 +155,7 @@ func TestMapInt32(t *testing.T) {
 
 func TestMapInt64(t *testing.T) {
 	type args struct {
-		f     func(int64) int64
+		f     func(int64, int) int64
 		input []int64
 	}
 	tests := []struct {
@@ -165,12 +165,12 @@ func TestMapInt64(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n int64) int64 { return n + 1 }, input: []int64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int64, idx int) int64 { return n + 1 }, input: []int64{1, 2, 3, 4, 5}},
 			wantOutput: []int64{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n int64) int64 { return n - 1 }, input: []int64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int64, idx int) int64 { return n - 1 }, input: []int64{1, 2, 3, 4, 5}},
 			wantOutput: []int64{0, 1, 2, 3, 4},
 		},
 	}
@@ -185,7 +185,7 @@ func TestMapInt64(t *testing.T) {
 
 func TestMapUint8(t *testing.T) {
 	type args struct {
-		f     func(uint8) uint8
+		f     func(uint8, int) uint8
 		input []uint8
 	}
 	tests := []struct {
@@ -195,12 +195,12 @@ func TestMapUint8(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n uint8) uint8 { return n + 1 }, input: []uint8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint8, idx int) uint8 { return n + 1 }, input: []uint8{1, 2, 3, 4, 5}},
 			wantOutput: []uint8{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n uint8) uint8 { return n - 1 }, input: []uint8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint8, idx int) uint8 { return n - 1 }, input: []uint8{1, 2, 3, 4, 5}},
 			wantOutput: []uint8{0, 1, 2, 3, 4},
 		},
 	}
@@ -215,7 +215,7 @@ func TestMapUint8(t *testing.T) {
 
 func TestMapUint16(t *testing.T) {
 	type args struct {
-		f     func(uint16) uint16
+		f     func(uint16, int) uint16
 		input []uint16
 	}
 	tests := []struct {
@@ -225,12 +225,12 @@ func TestMapUint16(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n uint16) uint16 { return n + 1 }, input: []uint16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint16, idx int) uint16 { return n + 1 }, input: []uint16{1, 2, 3, 4, 5}},
 			wantOutput: []uint16{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n uint16) uint16 { return n - 1 }, input: []uint16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint16, idx int) uint16 { return n - 1 }, input: []uint16{1, 2, 3, 4, 5}},
 			wantOutput: []uint16{0, 1, 2, 3, 4},
 		},
 	}
@@ -245,7 +245,7 @@ func TestMapUint16(t *testing.T) {
 
 func TestMapUint32(t *testing.T) {
 	type args struct {
-		f     func(uint32) uint32
+		f     func(uint32, int) uint32
 		input []uint32
 	}
 	tests := []struct {
@@ -255,12 +255,12 @@ func TestMapUint32(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n uint32) uint32 { return n + 1 }, input: []uint32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint32, idx int) uint32 { return n + 1 }, input: []uint32{1, 2, 3, 4, 5}},
 			wantOutput: []uint32{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n uint32) uint32 { return n - 1 }, input: []uint32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint32, idx int) uint32 { return n - 1 }, input: []uint32{1, 2, 3, 4, 5}},
 			wantOutput: []uint32{0, 1, 2, 3, 4},
 		},
 	}
@@ -275,7 +275,7 @@ func TestMapUint32(t *testing.T) {
 
 func TestMapUint64(t *testing.T) {
 	type args struct {
-		f     func(uint64) uint64
+		f     func(uint64, int) uint64
 		input []uint64
 	}
 	tests := []struct {
@@ -285,12 +285,12 @@ func TestMapUint64(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n uint64) uint64 { return n + 1 }, input: []uint64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint64, idx int) uint64 { return n + 1 }, input: []uint64{1, 2, 3, 4, 5}},
 			wantOutput: []uint64{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n uint64) uint64 { return n - 1 }, input: []uint64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint64, idx int) uint64 { return n - 1 }, input: []uint64{1, 2, 3, 4, 5}},
 			wantOutput: []uint64{0, 1, 2, 3, 4},
 		},
 	}
@@ -305,7 +305,7 @@ func TestMapUint64(t *testing.T) {
 
 func TestMapFloat32(t *testing.T) {
 	type args struct {
-		f     func(float32) float32
+		f     func(float32, int) float32
 		input []float32
 	}
 	tests := []struct {
@@ -315,12 +315,12 @@ func TestMapFloat32(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n float32) float32 { return n + 1 }, input: []float32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float32, idx int) float32 { return n + 1 }, input: []float32{1, 2, 3, 4, 5}},
 			wantOutput: []float32{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n float32) float32 { return n - 1 }, input: []float32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float32, idx int) float32 { return n - 1 }, input: []float32{1, 2, 3, 4, 5}},
 			wantOutput: []float32{0, 1, 2, 3, 4},
 		},
 	}
@@ -335,7 +335,7 @@ func TestMapFloat32(t *testing.T) {
 
 func TestMapFloat64(t *testing.T) {
 	type args struct {
-		f     func(float64) float64
+		f     func(float64, int) float64
 		input []float64
 	}
 	tests := []struct {
@@ -345,12 +345,12 @@ func TestMapFloat64(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n float64) float64 { return n + 1 }, input: []float64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float64, idx int) float64 { return n + 1 }, input: []float64{1, 2, 3, 4, 5}},
 			wantOutput: []float64{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n float64) float64 { return n - 1 }, input: []float64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float64, idx int) float64 { return n - 1 }, input: []float64{1, 2, 3, 4, 5}},
 			wantOutput: []float64{0, 1, 2, 3, 4},
 		},
 	}
@@ -365,7 +365,7 @@ func TestMapFloat64(t *testing.T) {
 
 func TestMapByte(t *testing.T) {
 	type args struct {
-		f     func(byte) byte
+		f     func(byte, int) byte
 		input []byte
 	}
 	tests := []struct {
@@ -375,12 +375,12 @@ func TestMapByte(t *testing.T) {
 	}{
 		{
 			name:       "all value + 1",
-			args:       args{f: func(n byte) byte { return n + 1 }, input: []byte{1, 2, 3, 4, 5}},
+			args:       args{f: func(n byte, idx int) byte { return n + 1 }, input: []byte{1, 2, 3, 4, 5}},
 			wantOutput: []byte{2, 3, 4, 5, 6},
 		},
 		{
 			name:       "all value - 1",
-			args:       args{f: func(n byte) byte { return n - 1 }, input: []byte{1, 2, 3, 4, 5}},
+			args:       args{f: func(n byte, idx int) byte { return n - 1 }, input: []byte{1, 2, 3, 4, 5}},
 			wantOutput: []byte{0, 1, 2, 3, 4},
 		},
 	}
@@ -395,7 +395,7 @@ func TestMapByte(t *testing.T) {
 
 func TestMap(t *testing.T) {
 	type args struct {
-		f     func(any) any
+		f     func(any, int) any
 		input []any
 	}
 	tests := []struct {
@@ -406,7 +406,7 @@ func TestMap(t *testing.T) {
 		{
 			name: "change all int value + 1 or output aaa",
 			args: args{
-				f: func(s any) any {
+				f: func(s any, idx int) any {
 					if reflect.TypeOf(s).Kind() == reflect.Int {
 						return s.(int) + 1
 					}

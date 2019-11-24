@@ -1,7 +1,7 @@
-func Map{{if ne . "any"}}{{upperFirstChar .}}{{end}}(f func({{.}}){{.}}, input []{{.}}) (output []{{.}}){
+func Map{{if ne . "any"}}{{upperFirstChar .}}{{end}}(f func({{.}}, int){{.}}, input []{{.}}) (output []{{.}}){
     output = make([]{{.}}, 0)
-    for _, data := range input {
-        output = append(output, f(data))
+    for idx, data := range input {
+        output = append(output, f(data, idx))
     }
     return
 }

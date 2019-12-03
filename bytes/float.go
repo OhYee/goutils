@@ -15,9 +15,21 @@ func FromFloat32(value float32) (b []byte) {
 	return
 }
 
+// ToFloat32 transfer from []byte to float32
+func ToFloat32(b []byte) (value float32) {
+	value = math.Float32frombits(ToUint32(b))
+	return
+}
+
 // FromFloat64 transfer from float64 to []byte
 func FromFloat64(value float64) (b []byte) {
 	b = make([]byte, 8)
 	binary.BigEndian.PutUint64(b, math.Float64bits(value))
+	return
+}
+
+// ToFloat64 transfer from []byte to float64
+func ToFloat64(b []byte) (value float64) {
+	value = math.Float64frombits(ToUint64(b))
 	return
 }

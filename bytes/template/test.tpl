@@ -21,3 +21,25 @@ func TestFrom{{upperFirstChar .type}}(t *testing.T) {
 	}
 }
 
+func TestTo{{upperFirstChar .type}}(t *testing.T) {
+	tests := []struct {
+		name  string
+		b     []byte
+		want  {{.type}}
+	}{
+        {{- range $case := .testcases}}
+		{
+			name:"test {{$.type}} {{$case.value}}",
+			b: []byte{ {{$case.b}} },
+			want: {{$case.value}},
+		},
+        {{end}}
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := To{{upperFirstChar .type}}(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("To{{upperFirstChar .type}}() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

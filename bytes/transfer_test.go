@@ -50,6 +50,26 @@ func TestFromUint8(t *testing.T) {
 	}
 }
 
+func TestToUint8(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want uint8
+	}{
+		{
+			name: "test uint8 25",
+			b:    []byte{0x19},
+			want: 25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToUint8(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToUint8() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromUint16(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -71,6 +91,26 @@ func TestFromUint16(t *testing.T) {
 	}
 }
 
+func TestToUint16(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want uint16
+	}{
+		{
+			name: "test uint16 25*25",
+			b:    []byte{0x02, 0x71},
+			want: 25 * 25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToUint16(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToUint16() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromUint32(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -92,6 +132,26 @@ func TestFromUint32(t *testing.T) {
 	}
 }
 
+func TestToUint32(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want uint32
+	}{
+		{
+			name: "test uint32 25*25*25*25",
+			b:    []byte{0x00, 0x05, 0xf5, 0xe1},
+			want: 25 * 25 * 25 * 25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToUint32(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToUint32() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromUint64(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -113,6 +173,26 @@ func TestFromUint64(t *testing.T) {
 	}
 }
 
+func TestToUint64(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want uint64
+	}{
+		{
+			name: "test uint64 25*25*25*25*25*25*25*25",
+			b:    []byte{0x00, 0x00, 0x00, 0x23, 0x86, 0xf2, 0x6f, 0xc1},
+			want: 25 * 25 * 25 * 25 * 25 * 25 * 25 * 25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToUint64(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToUint64() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromInt8(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -140,6 +220,32 @@ func TestFromInt8(t *testing.T) {
 	}
 }
 
+func TestToInt8(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want int8
+	}{
+		{
+			name: "test int8 25",
+			b:    []byte{0x19},
+			want: 25,
+		},
+
+		{
+			name: "test int8 -25",
+			b:    []byte{0xE7},
+			want: -25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToInt8(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToInt8() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromInt16(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -161,6 +267,26 @@ func TestFromInt16(t *testing.T) {
 	}
 }
 
+func TestToInt16(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want int16
+	}{
+		{
+			name: "test int16 25*25",
+			b:    []byte{0x02, 0x71},
+			want: 25 * 25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToInt16(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToInt16() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromInt32(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -182,6 +308,26 @@ func TestFromInt32(t *testing.T) {
 	}
 }
 
+func TestToInt32(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want int32
+	}{
+		{
+			name: "test int32 25*25*25*25",
+			b:    []byte{0x00, 0x05, 0xf5, 0xe1},
+			want: 25 * 25 * 25 * 25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToInt32(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToInt32() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromInt64(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -203,6 +349,26 @@ func TestFromInt64(t *testing.T) {
 	}
 }
 
+func TestToInt64(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want int64
+	}{
+		{
+			name: "test int64 25*25*25*25*25*25*25*25",
+			b:    []byte{0x00, 0x00, 0x00, 0x23, 0x86, 0xf2, 0x6f, 0xc1},
+			want: 25 * 25 * 25 * 25 * 25 * 25 * 25 * 25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToInt64(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToInt64() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromFloat32(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -224,6 +390,26 @@ func TestFromFloat32(t *testing.T) {
 	}
 }
 
+func TestToFloat32(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want float32
+	}{
+		{
+			name: "test float32 1.0",
+			b:    []byte{0x3f, 0x80, 0x00, 0x00},
+			want: 1.0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToFloat32(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToFloat32() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 func TestFromFloat64(t *testing.T) {
 	tests := []struct {
 		name  string
@@ -240,6 +426,27 @@ func TestFromFloat64(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if gotB := FromFloat64(tt.value); !goutils.Equal(gotB, tt.wantB) {
 				t.Errorf("FromFloat64() = %v, want %v", gotB, tt.wantB)
+			}
+		})
+	}
+}
+
+func TestToFloat64(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want float64
+	}{
+		{
+			name: "test float64 1.0",
+			b:    []byte{0x3f, 0xf0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+			want: 1.0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ToFloat64(tt.b); !goutils.Equal(got, tt.want) {
+				t.Errorf("ToFloat64() = %v, want %v", got, tt.want)
 			}
 		})
 	}

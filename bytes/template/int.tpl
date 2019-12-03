@@ -11,3 +11,15 @@ func FromInt{{.bit}}(value int{{.bit}}) (b []byte) {
     binary.BigEndian.PutUint{{.bit}}(b, uint{{.bit}}(value))
     return
 }
+
+// ToUint{{.bit}} transfer from []byte to uint{{.bit}} 
+func ToUint{{.bit}}(b []byte) (value uint{{.bit}}) {
+    value = binary.BigEndian.Uint{{.bit}}(b)
+    return
+}
+
+// ToInt{{.bit}} transfer from []byte to int{{.bit}}
+func ToInt{{.bit}}(b []byte) (value int{{.bit}}) {
+    value = int{{.bit}}(binary.BigEndian.Uint{{.bit}}(b))
+    return
+}

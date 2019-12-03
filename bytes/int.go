@@ -19,6 +19,18 @@ func FromInt8(value int8) (b []byte) {
 	return
 }
 
+// ToUint8 transfer from []byte to uint8
+func ToUint8(b []byte) (value uint8) {
+	value = uint8(b[0])
+	return
+}
+
+// ToInt8 transfer from []byte to int8
+func ToInt8(b []byte) (value int8) {
+	value = int8(b[0])
+	return
+}
+
 // FromUint16 transfer from uint16 to []byte
 func FromUint16(value uint16) (b []byte) {
 	b = make([]byte, 2)
@@ -31,7 +43,21 @@ func FromInt16(value int16) (b []byte) {
 	b = make([]byte, 2)
 	binary.BigEndian.PutUint16(b, uint16(value))
 	return
-} // FromUint32 transfer from uint32 to []byte
+}
+
+// ToUint16 transfer from []byte to uint16
+func ToUint16(b []byte) (value uint16) {
+	value = binary.BigEndian.Uint16(b)
+	return
+}
+
+// ToInt16 transfer from []byte to int16
+func ToInt16(b []byte) (value int16) {
+	value = int16(binary.BigEndian.Uint16(b))
+	return
+}
+
+// FromUint32 transfer from uint32 to []byte
 func FromUint32(value uint32) (b []byte) {
 	b = make([]byte, 4)
 	binary.BigEndian.PutUint32(b, uint32(value))
@@ -43,7 +69,21 @@ func FromInt32(value int32) (b []byte) {
 	b = make([]byte, 4)
 	binary.BigEndian.PutUint32(b, uint32(value))
 	return
-} // FromUint64 transfer from uint64 to []byte
+}
+
+// ToUint32 transfer from []byte to uint32
+func ToUint32(b []byte) (value uint32) {
+	value = binary.BigEndian.Uint32(b)
+	return
+}
+
+// ToInt32 transfer from []byte to int32
+func ToInt32(b []byte) (value int32) {
+	value = int32(binary.BigEndian.Uint32(b))
+	return
+}
+
+// FromUint64 transfer from uint64 to []byte
 func FromUint64(value uint64) (b []byte) {
 	b = make([]byte, 8)
 	binary.BigEndian.PutUint64(b, uint64(value))
@@ -54,5 +94,17 @@ func FromUint64(value uint64) (b []byte) {
 func FromInt64(value int64) (b []byte) {
 	b = make([]byte, 8)
 	binary.BigEndian.PutUint64(b, uint64(value))
+	return
+}
+
+// ToUint64 transfer from []byte to uint64
+func ToUint64(b []byte) (value uint64) {
+	value = binary.BigEndian.Uint64(b)
+	return
+}
+
+// ToInt64 transfer from []byte to int64
+func ToInt64(b []byte) (value int64) {
+	value = int64(binary.BigEndian.Uint64(b))
 	return
 }

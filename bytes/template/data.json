@@ -60,7 +60,7 @@
                 "testing",
                 "github.com/OhYee/goutils"
             ],
-            "output": "../bytes_test.go",
+            "output": "../transfer_test.go",
             "body": [
                 {
                     "template": "./test_string.tpl",

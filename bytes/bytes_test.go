@@ -71,7 +71,7 @@ func TestReadNBytes(t *testing.T) {
 	})
 }
 
-func TestWriteWithLength(t *testing.T) {
+func TestWriteWithLength32(t *testing.T) {
 	tests := []struct {
 		name string
 		b    []byte
@@ -86,9 +86,98 @@ func TestWriteWithLength(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			buf := bytes.NewBuffer([]byte{})
-			WriteWithLength(buf, tt.b)
+			WriteWithLength32(buf, tt.b)
 			if !goutils.Equal(buf.Bytes(), tt.want) {
 				t.Errorf("Want %v, got %v", tt.want, buf.Bytes())
+			}
+		})
+	}
+}
+
+func TestWriteWithLength64(t *testing.T) {
+	tests := []struct {
+		name string
+		b    []byte
+		want []byte
+	}{
+		{
+			name: "0x1234",
+			b:    []byte{0x12, 0x34},
+			want: []byte{0, 0, 0, 0, 0, 0, 0, 2, 0x12, 0x34},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			buf := bytes.NewBuffer([]byte{})
+			WriteWithLength64(buf, tt.b)
+			if !goutils.Equal(buf.Bytes(), tt.want) {
+				t.Errorf("Want %v, got %v", tt.want, buf.Bytes())
+			}
+		})
+	}
+}
+
+func TestReadWithLength32(t *testing.T) {
+	tests := []struct {
+		name    string
+		b       []byte
+		want    []byte
+		wantErr bool
+	}{
+		{
+			name:    "0x1234",
+			b:       []byte{0, 0, 0, 2, 0x12, 0x34},
+			want:    []byte{0x12, 0x34},
+			wantErr: false,
+		},
+		{
+			name:    "do not have enough length",
+			b:       []byte{},
+			want:    []byte{},
+			wantErr: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			buf := bytes.NewBuffer(tt.b)
+			got, err := ReadWithLength32(buf)
+			if (err == nil) == tt.wantErr {
+				t.Errorf("err is %v, but want %v\n", err, tt.wantErr)
+			} else if !goutils.Equal(got, tt.want) {
+				t.Errorf("Want %v, got %v", tt.want, got)
+			}
+		})
+	}
+}
+
+func TestReadWithLength64(t *testing.T) {
+	tests := []struct {
+		name    string
+		b       []byte
+		want    []byte
+		wantErr bool
+	}{
+		{
+			name:    "0x1234",
+			b:       []byte{0, 0, 0, 0, 0, 0, 0, 2, 0x12, 0x34},
+			want:    []byte{0x12, 0x34},
+			wantErr: false,
+		},
+		{
+			name:    "do not have enough length",
+			b:       []byte{},
+			want:    []byte{},
+			wantErr: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			buf := bytes.NewBuffer(tt.b)
+			got, err := ReadWithLength64(buf)
+			if (err == nil) == tt.wantErr {
+				t.Errorf("err is %v, but want %v\n", err, tt.wantErr)
+			} else if !goutils.Equal(got, tt.want) {
+				t.Errorf("Want %v, got %v", tt.want, got)
 			}
 		})
 	}

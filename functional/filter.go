@@ -5,6 +5,7 @@ package fp
 
 import ()
 
+// FilterString return the values which are matched
 func FilterString(f func(string) bool, input []string) (output []string) {
 	output = make([]string, 0)
 	for _, data := range input {
@@ -14,6 +15,8 @@ func FilterString(f func(string) bool, input []string) (output []string) {
 	}
 	return
 }
+
+// FilterInt return the values which are matched
 func FilterInt(f func(int) bool, input []int) (output []int) {
 	output = make([]int, 0)
 	for _, data := range input {
@@ -23,6 +26,8 @@ func FilterInt(f func(int) bool, input []int) (output []int) {
 	}
 	return
 }
+
+// FilterInt8 return the values which are matched
 func FilterInt8(f func(int8) bool, input []int8) (output []int8) {
 	output = make([]int8, 0)
 	for _, data := range input {
@@ -32,6 +37,8 @@ func FilterInt8(f func(int8) bool, input []int8) (output []int8) {
 	}
 	return
 }
+
+// FilterInt16 return the values which are matched
 func FilterInt16(f func(int16) bool, input []int16) (output []int16) {
 	output = make([]int16, 0)
 	for _, data := range input {
@@ -41,6 +48,8 @@ func FilterInt16(f func(int16) bool, input []int16) (output []int16) {
 	}
 	return
 }
+
+// FilterInt32 return the values which are matched
 func FilterInt32(f func(int32) bool, input []int32) (output []int32) {
 	output = make([]int32, 0)
 	for _, data := range input {
@@ -50,6 +59,8 @@ func FilterInt32(f func(int32) bool, input []int32) (output []int32) {
 	}
 	return
 }
+
+// FilterInt64 return the values which are matched
 func FilterInt64(f func(int64) bool, input []int64) (output []int64) {
 	output = make([]int64, 0)
 	for _, data := range input {
@@ -59,6 +70,8 @@ func FilterInt64(f func(int64) bool, input []int64) (output []int64) {
 	}
 	return
 }
+
+// FilterUint8 return the values which are matched
 func FilterUint8(f func(uint8) bool, input []uint8) (output []uint8) {
 	output = make([]uint8, 0)
 	for _, data := range input {
@@ -68,6 +81,8 @@ func FilterUint8(f func(uint8) bool, input []uint8) (output []uint8) {
 	}
 	return
 }
+
+// FilterUint16 return the values which are matched
 func FilterUint16(f func(uint16) bool, input []uint16) (output []uint16) {
 	output = make([]uint16, 0)
 	for _, data := range input {
@@ -77,6 +92,8 @@ func FilterUint16(f func(uint16) bool, input []uint16) (output []uint16) {
 	}
 	return
 }
+
+// FilterUint32 return the values which are matched
 func FilterUint32(f func(uint32) bool, input []uint32) (output []uint32) {
 	output = make([]uint32, 0)
 	for _, data := range input {
@@ -86,6 +103,8 @@ func FilterUint32(f func(uint32) bool, input []uint32) (output []uint32) {
 	}
 	return
 }
+
+// FilterUint64 return the values which are matched
 func FilterUint64(f func(uint64) bool, input []uint64) (output []uint64) {
 	output = make([]uint64, 0)
 	for _, data := range input {
@@ -95,6 +114,8 @@ func FilterUint64(f func(uint64) bool, input []uint64) (output []uint64) {
 	}
 	return
 }
+
+// FilterFloat32 return the values which are matched
 func FilterFloat32(f func(float32) bool, input []float32) (output []float32) {
 	output = make([]float32, 0)
 	for _, data := range input {
@@ -104,6 +125,8 @@ func FilterFloat32(f func(float32) bool, input []float32) (output []float32) {
 	}
 	return
 }
+
+// FilterFloat64 return the values which are matched
 func FilterFloat64(f func(float64) bool, input []float64) (output []float64) {
 	output = make([]float64, 0)
 	for _, data := range input {
@@ -113,6 +136,8 @@ func FilterFloat64(f func(float64) bool, input []float64) (output []float64) {
 	}
 	return
 }
+
+// FilterByte return the values which are matched
 func FilterByte(f func(byte) bool, input []byte) (output []byte) {
 	output = make([]byte, 0)
 	for _, data := range input {
@@ -122,6 +147,8 @@ func FilterByte(f func(byte) bool, input []byte) (output []byte) {
 	}
 	return
 }
+
+// Filter return the values which are matched
 func Filter(f func(any) bool, input []any) (output []any) {
 	output = make([]any, 0)
 	for _, data := range input {

@@ -1,3 +1,4 @@
+// Filter{{if ne . "any"}}{{upperFirstChar .}}{{end}} return the values which are matched
 func Filter{{if ne . "any"}}{{upperFirstChar .}}{{end}}(f func({{.}})bool, input []{{.}}) (output []{{.}}){
     output = make([]{{.}}, 0)
     for _, data := range input {

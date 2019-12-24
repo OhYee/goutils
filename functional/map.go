@@ -5,6 +5,7 @@ package fp
 
 import ()
 
+// MapString make a map from the current slice to a new slice using the function
 func MapString(f func(string, int) string, input []string) (output []string) {
 	output = make([]string, 0)
 	for idx, data := range input {
@@ -12,6 +13,8 @@ func MapString(f func(string, int) string, input []string) (output []string) {
 	}
 	return
 }
+
+// MapInt make a map from the current slice to a new slice using the function
 func MapInt(f func(int, int) int, input []int) (output []int) {
 	output = make([]int, 0)
 	for idx, data := range input {
@@ -19,6 +22,8 @@ func MapInt(f func(int, int) int, input []int) (output []int) {
 	}
 	return
 }
+
+// MapInt8 make a map from the current slice to a new slice using the function
 func MapInt8(f func(int8, int) int8, input []int8) (output []int8) {
 	output = make([]int8, 0)
 	for idx, data := range input {
@@ -26,6 +31,8 @@ func MapInt8(f func(int8, int) int8, input []int8) (output []int8) {
 	}
 	return
 }
+
+// MapInt16 make a map from the current slice to a new slice using the function
 func MapInt16(f func(int16, int) int16, input []int16) (output []int16) {
 	output = make([]int16, 0)
 	for idx, data := range input {
@@ -33,6 +40,8 @@ func MapInt16(f func(int16, int) int16, input []int16) (output []int16) {
 	}
 	return
 }
+
+// MapInt32 make a map from the current slice to a new slice using the function
 func MapInt32(f func(int32, int) int32, input []int32) (output []int32) {
 	output = make([]int32, 0)
 	for idx, data := range input {
@@ -40,6 +49,8 @@ func MapInt32(f func(int32, int) int32, input []int32) (output []int32) {
 	}
 	return
 }
+
+// MapInt64 make a map from the current slice to a new slice using the function
 func MapInt64(f func(int64, int) int64, input []int64) (output []int64) {
 	output = make([]int64, 0)
 	for idx, data := range input {
@@ -47,6 +58,8 @@ func MapInt64(f func(int64, int) int64, input []int64) (output []int64) {
 	}
 	return
 }
+
+// MapUint8 make a map from the current slice to a new slice using the function
 func MapUint8(f func(uint8, int) uint8, input []uint8) (output []uint8) {
 	output = make([]uint8, 0)
 	for idx, data := range input {
@@ -54,6 +67,8 @@ func MapUint8(f func(uint8, int) uint8, input []uint8) (output []uint8) {
 	}
 	return
 }
+
+// MapUint16 make a map from the current slice to a new slice using the function
 func MapUint16(f func(uint16, int) uint16, input []uint16) (output []uint16) {
 	output = make([]uint16, 0)
 	for idx, data := range input {
@@ -61,6 +76,8 @@ func MapUint16(f func(uint16, int) uint16, input []uint16) (output []uint16) {
 	}
 	return
 }
+
+// MapUint32 make a map from the current slice to a new slice using the function
 func MapUint32(f func(uint32, int) uint32, input []uint32) (output []uint32) {
 	output = make([]uint32, 0)
 	for idx, data := range input {
@@ -68,6 +85,8 @@ func MapUint32(f func(uint32, int) uint32, input []uint32) (output []uint32) {
 	}
 	return
 }
+
+// MapUint64 make a map from the current slice to a new slice using the function
 func MapUint64(f func(uint64, int) uint64, input []uint64) (output []uint64) {
 	output = make([]uint64, 0)
 	for idx, data := range input {
@@ -75,6 +94,8 @@ func MapUint64(f func(uint64, int) uint64, input []uint64) (output []uint64) {
 	}
 	return
 }
+
+// MapFloat32 make a map from the current slice to a new slice using the function
 func MapFloat32(f func(float32, int) float32, input []float32) (output []float32) {
 	output = make([]float32, 0)
 	for idx, data := range input {
@@ -82,6 +103,8 @@ func MapFloat32(f func(float32, int) float32, input []float32) (output []float32
 	}
 	return
 }
+
+// MapFloat64 make a map from the current slice to a new slice using the function
 func MapFloat64(f func(float64, int) float64, input []float64) (output []float64) {
 	output = make([]float64, 0)
 	for idx, data := range input {
@@ -89,6 +112,8 @@ func MapFloat64(f func(float64, int) float64, input []float64) (output []float64
 	}
 	return
 }
+
+// MapByte make a map from the current slice to a new slice using the function
 func MapByte(f func(byte, int) byte, input []byte) (output []byte) {
 	output = make([]byte, 0)
 	for idx, data := range input {
@@ -96,6 +121,8 @@ func MapByte(f func(byte, int) byte, input []byte) (output []byte) {
 	}
 	return
 }
+
+// Map make a map from the current slice to a new slice using the function
 func Map(f func(any, int) any, input []any) (output []any) {
 	output = make([]any, 0)
 	for idx, data := range input {

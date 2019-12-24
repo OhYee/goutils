@@ -5,84 +5,111 @@ package fp
 
 import ()
 
+// ReduceString accumulate all values
 func ReduceString(f func(string, string) string, input []string) (output string) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceInt accumulate all values
 func ReduceInt(f func(int, int) int, input []int) (output int) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceInt8 accumulate all values
 func ReduceInt8(f func(int8, int8) int8, input []int8) (output int8) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceInt16 accumulate all values
 func ReduceInt16(f func(int16, int16) int16, input []int16) (output int16) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceInt32 accumulate all values
 func ReduceInt32(f func(int32, int32) int32, input []int32) (output int32) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceInt64 accumulate all values
 func ReduceInt64(f func(int64, int64) int64, input []int64) (output int64) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceUint8 accumulate all values
 func ReduceUint8(f func(uint8, uint8) uint8, input []uint8) (output uint8) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceUint16 accumulate all values
 func ReduceUint16(f func(uint16, uint16) uint16, input []uint16) (output uint16) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceUint32 accumulate all values
 func ReduceUint32(f func(uint32, uint32) uint32, input []uint32) (output uint32) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceUint64 accumulate all values
 func ReduceUint64(f func(uint64, uint64) uint64, input []uint64) (output uint64) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceFloat32 accumulate all values
 func ReduceFloat32(f func(float32, float32) float32, input []float32) (output float32) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceFloat64 accumulate all values
 func ReduceFloat64(f func(float64, float64) float64, input []float64) (output float64) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// ReduceByte accumulate all values
 func ReduceByte(f func(byte, byte) byte, input []byte) (output byte) {
 	for _, data := range input {
 		output = f(output, data)
 	}
 	return
 }
+
+// Reduce accumulate all values
 func Reduce(f func(any, any) any, input []any) (output any) {
 	for _, data := range input {
 		output = f(output, data)

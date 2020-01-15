@@ -7,6 +7,11 @@ import (
 	"io"
 )
 
+// Serializable could be serialization type
+type Serializable interface {
+	ToBytes() []byte
+}
+
 // ReadNBytes read n bytes from a io.Reader
 func ReadNBytes(r io.Reader, n int) (b []byte, err error) {
 	readLength := 0

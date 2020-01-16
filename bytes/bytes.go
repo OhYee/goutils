@@ -36,22 +36,22 @@ func ReadNBytes(r io.Reader, n int) (b []byte, err error) {
 	return
 }
 
-// WriteWithLength32 the data to the writer after the length of the data
+// FromBytesWithLength32 the data to the writer after the length of the data
 // The length will store with int32
-func WriteWithLength32(buf io.Writer, b []byte) {
-	buf.Write(FromInt32(int32(len(b))))
-	buf.Write(b)
+func FromBytesWithLength32(b []byte) (bb []byte) {
+	bb = append(FromInt32(int32(len(b))), b...)
+	return
 }
 
-// WriteWithLength64 the data to the writer after the length of the data
+// FromBytesWithLength64 the data to the writer after the length of the data
 // The length will store with int64
-func WriteWithLength64(buf io.Writer, b []byte) {
-	buf.Write(FromInt64(int64(len(b))))
-	buf.Write(b)
+func FromBytesWithLength64(b []byte) (bb []byte) {
+	bb = append(FromInt64(int64(len(b))), b...)
+	return
 }
 
-// ReadWithLength32 read an int32 length first, and then read the data with length
-func ReadWithLength32(r io.Reader) (b []byte, err error) {
+// ReadBytesWithLength32 read an int32 length first, and then read the data with length
+func ReadBytesWithLength32(r io.Reader) (b []byte, err error) {
 	l, err := ReadInt32(r)
 	if err != nil {
 		return
@@ -60,9 +60,9 @@ func ReadWithLength32(r io.Reader) (b []byte, err error) {
 	return
 }
 
-// ReadWithLength64 read an int64 length first, and then read the data with length
+// ReadBytesWithLength64 read an int64 length first, and then read the data with length
 // ONLY USE IN 64-BIT SYSTEM
-func ReadWithLength64(r io.Reader) (b []byte, err error) {
+func ReadBytesWithLength64(r io.Reader) (b []byte, err error) {
 	l, err := ReadInt64(r)
 	if err != nil {
 		return

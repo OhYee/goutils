@@ -12,6 +12,11 @@ type Serializable interface {
 	ToBytes() []byte
 }
 
+// NewBuffer initial a empty bytes.Buffer
+func NewBuffer() *bytes.Buffer {
+	return bytes.NewBuffer([]byte{})
+}
+
 // ReadNBytes read n bytes from a io.Reader
 func ReadNBytes(r io.Reader, n int) (b []byte, err error) {
 	readLength := 0

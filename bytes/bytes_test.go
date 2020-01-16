@@ -182,3 +182,13 @@ func TestReadWithLength64(t *testing.T) {
 		})
 	}
 }
+
+func TestNewBuffer(t *testing.T) {
+	t.Run("buffer", func(t *testing.T) {
+		buf := NewBuffer()
+		buf.Write([]byte{0x01})
+		if !goutils.Equal(buf.Bytes(), []byte{0x01}) {
+			t.Errorf("NewBuffer() = %v, want 0x01", buf.Bytes())
+		}
+	})
+}

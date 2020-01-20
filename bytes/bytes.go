@@ -13,8 +13,8 @@ type Serializable interface {
 }
 
 // NewBuffer initial a empty bytes.Buffer
-func NewBuffer() *bytes.Buffer {
-	return bytes.NewBuffer([]byte{})
+func NewBuffer(b ...byte) *bytes.Buffer {
+	return bytes.NewBuffer(b)
 }
 
 // ReadNBytes read n bytes from a io.Reader

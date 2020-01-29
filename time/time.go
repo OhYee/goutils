@@ -11,12 +11,12 @@ const TimeFormat = "2006-01-02 15:04:05"
 func FromString(str string) time.Time {
 	t, err := time.Parse(TimeFormat, str)
 	if err != nil {
-		t = time.Now()
+		t = time.Unix(0, 0)
 	}
 	return t
 }
 
 // ToString transfer time.Time to 2006-01-02 15:04:05 string
-func ToString(t time.Time) string {
-	return t.Format(TimeFormat)
+func ToString(t int64) string {
+	return time.Unix(t, 0).Format(TimeFormat)
 }

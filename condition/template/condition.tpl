@@ -1,6 +1,6 @@
 
-// If{{if ne . "any"}}{{upperFirstChar .}}{{end}} return value according condition
-func If{{if ne . "any"}}{{upperFirstChar .}}{{end}}(condition bool, t {{.}}, f {{.}}) {{.}} {
+// If{{template "functionName" .type}} return value according condition
+func If{{template "functionName" .type}}(condition bool, t {{.type}}, f {{.type}}) {{.type}} {
     if condition {
         return t
     }

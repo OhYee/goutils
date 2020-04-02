@@ -1,0 +1,1 @@
+{{define "functionName"}}{{if ne . "any"}}{{upperFirstChar .}}{{end}}{{end}}

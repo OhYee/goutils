@@ -5,8 +5,48 @@ package condition
 
 import ()
 
+// If return value according condition
+func If(condition bool, t any, f any) any {
+	if condition {
+		return t
+	}
+	return f
+}
+
+// IfRune return value according condition
+func IfRune(condition bool, t rune, f rune) rune {
+	if condition {
+		return t
+	}
+	return f
+}
+
 // IfString return value according condition
 func IfString(condition bool, t string, f string) string {
+	if condition {
+		return t
+	}
+	return f
+}
+
+// IfByte return value according condition
+func IfByte(condition bool, t byte, f byte) byte {
+	if condition {
+		return t
+	}
+	return f
+}
+
+// IfBool return value according condition
+func IfBool(condition bool, t bool, f bool) bool {
+	if condition {
+		return t
+	}
+	return f
+}
+
+// IfFunction return value according condition
+func IfFunction(condition bool, t function, f function) function {
 	if condition {
 		return t
 	}
@@ -95,38 +135,6 @@ func IfFloat32(condition bool, t float32, f float32) float32 {
 
 // IfFloat64 return value according condition
 func IfFloat64(condition bool, t float64, f float64) float64 {
-	if condition {
-		return t
-	}
-	return f
-}
-
-// IfByte return value according condition
-func IfByte(condition bool, t byte, f byte) byte {
-	if condition {
-		return t
-	}
-	return f
-}
-
-// IfBool return value according condition
-func IfBool(condition bool, t bool, f bool) bool {
-	if condition {
-		return t
-	}
-	return f
-}
-
-// IfRune return value according condition
-func IfRune(condition bool, t rune, f rune) rune {
-	if condition {
-		return t
-	}
-	return f
-}
-
-// If return value according condition
-func If(condition bool, t any, f any) any {
 	if condition {
 		return t
 	}

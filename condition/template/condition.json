@@ -1,5 +1,93 @@
 {
-    "variable": {},
+    "variable": {
+        "$types": [
+            {
+                "type": "any",
+                "t": "\"t\"",
+                "f": "\"f\""
+            },
+            {
+                "type": "rune",
+                "t": "'a'",
+                "f": "'b'"
+            },
+            {
+                "type": "string",
+                "t": "\"a\"",
+                "f": "\"b\""
+            },
+            {
+                "type": "byte",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "bool",
+                "t": true,
+                "f": false
+            },
+            {
+                "type": "function",
+                "t": "func() { res = true }",
+                "f": "func() { res = false }"
+            },
+            {
+                "type": "int",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "int8",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "int16",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "int32",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "int64",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "uint8",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "uint16",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "uint32",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "uint64",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "float32",
+                "t": 1,
+                "f": 2
+            },
+            {
+                "type": "float64",
+                "t": 1,
+                "f": 2
+            }
+        ]
+    },
     "files": [
         {
             "package": "condition",
@@ -7,25 +95,28 @@
             "import": [],
             "body": [
                 {
-                    "template": "./condition.tpl",
-                    "args": [
-                        "string",
-                        "int",
-                        "int8",
-                        "int16",
-                        "int32",
-                        "int64",
-                        "uint8",
-                        "uint16",
-                        "uint32",
-                        "uint64",
-                        "float32",
-                        "float64",
-                        "byte",
-                        "bool",
-                        "rune",
-                        "any"
-                    ]
+                    "template": [
+                        "./condition.tpl",
+                        "./function_name.tpl"
+                    ],
+                    "args": "$types"
+                }
+            ]
+        },
+        {
+            "package": "condition",
+            "output": "../condition_test.go",
+            "import": [
+                "testing",
+                "reflect"
+            ],
+            "body": [
+                {
+                    "template": [
+                        "./test.tpl",
+                        "./function_name.tpl"
+                    ],
+                    "args": "$types"
                 }
             ]
         }

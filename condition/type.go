@@ -1,4 +1,5 @@
 package condition
 
-//go:genreate gcg ./template/condition.json
+//go:generate gcg ./template/condition.json
 type any = interface{}
+type function = func()

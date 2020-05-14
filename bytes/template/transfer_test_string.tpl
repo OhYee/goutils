@@ -14,7 +14,7 @@ func TestFromString(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromString(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromString(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromString() = %v, want %v", gotB, tt.wantB)
 			}
 		})

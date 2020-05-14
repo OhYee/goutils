@@ -4,7 +4,7 @@
 package bytes
 
 import (
-	"github.com/OhYee/goutils"
+	"github.com/OhYee/goutils/compare"
 	"testing"
 )
 
@@ -22,7 +22,7 @@ func TestFromString(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromString(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromString(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromString() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -43,7 +43,7 @@ func TestFromUint8(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromUint8(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromUint8(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromUint8() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -64,7 +64,7 @@ func TestToUint8(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToUint8(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToUint8(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToUint8() = %v, want %v", got, tt.want)
 			}
 		})
@@ -84,7 +84,7 @@ func TestFromUint16(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromUint16(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromUint16(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromUint16() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -105,7 +105,7 @@ func TestToUint16(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToUint16(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToUint16(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToUint16() = %v, want %v", got, tt.want)
 			}
 		})
@@ -125,7 +125,7 @@ func TestFromUint32(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromUint32(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromUint32(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromUint32() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -146,7 +146,7 @@ func TestToUint32(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToUint32(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToUint32(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToUint32() = %v, want %v", got, tt.want)
 			}
 		})
@@ -166,7 +166,7 @@ func TestFromUint64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromUint64(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromUint64(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromUint64() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -187,7 +187,7 @@ func TestToUint64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToUint64(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToUint64(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToUint64() = %v, want %v", got, tt.want)
 			}
 		})
@@ -213,7 +213,7 @@ func TestFromInt8(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromInt8(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromInt8(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromInt8() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -240,7 +240,7 @@ func TestToInt8(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToInt8(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToInt8(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToInt8() = %v, want %v", got, tt.want)
 			}
 		})
@@ -260,7 +260,7 @@ func TestFromInt16(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromInt16(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromInt16(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromInt16() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -281,7 +281,7 @@ func TestToInt16(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToInt16(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToInt16(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToInt16() = %v, want %v", got, tt.want)
 			}
 		})
@@ -301,7 +301,7 @@ func TestFromInt32(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromInt32(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromInt32(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromInt32() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -322,7 +322,7 @@ func TestToInt32(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToInt32(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToInt32(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToInt32() = %v, want %v", got, tt.want)
 			}
 		})
@@ -342,7 +342,7 @@ func TestFromInt64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromInt64(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromInt64(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromInt64() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -363,7 +363,7 @@ func TestToInt64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToInt64(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToInt64(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToInt64() = %v, want %v", got, tt.want)
 			}
 		})
@@ -383,7 +383,7 @@ func TestFromFloat32(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromFloat32(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromFloat32(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromFloat32() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -404,7 +404,7 @@ func TestToFloat32(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToFloat32(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToFloat32(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToFloat32() = %v, want %v", got, tt.want)
 			}
 		})
@@ -424,7 +424,7 @@ func TestFromFloat64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := FromFloat64(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := FromFloat64(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("FromFloat64() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -445,7 +445,7 @@ func TestToFloat64(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ToFloat64(tt.b); !goutils.Equal(got, tt.want) {
+			if got := ToFloat64(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("ToFloat64() = %v, want %v", got, tt.want)
 			}
 		})

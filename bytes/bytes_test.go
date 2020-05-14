@@ -7,7 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/OhYee/goutils"
+	"github.com/OhYee/goutils/compare"
+	"github.com/OhYee/goutils/pipeline"
 )
 
 func TestReadNBytes(t *testing.T) {
@@ -49,7 +50,7 @@ func TestReadNBytes(t *testing.T) {
 		})
 	}
 	t.Run("dynamic add data", func(t *testing.T) {
-		pipe := goutils.NewPipe(16, []byte{0x01, 0x02})
+		pipe := pipeline.New(16, []byte{0x01, 0x02})
 		answer := []byte{0x01, 0x02, 0x03}
 		var b []byte
 		var err error
@@ -65,7 +66,7 @@ func TestReadNBytes(t *testing.T) {
 		}()
 
 		<-c
-		if !goutils.Equal(b, answer) || !goutils.Equal(err, nil) {
+		if !compare.Equal(b, answer) || !compare.Equal(err, nil) {
 			t.Errorf("Except %v %v, but got %v %v", answer, nil, b, err)
 		}
 	})
@@ -86,7 +87,7 @@ func TestFromBytesWithLength32(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			gotB := FromBytesWithLength32(tt.b)
-			if !goutils.Equal(gotB, tt.want) {
+			if !compare.Equal(gotB, tt.want) {
 				t.Errorf("Want %v, got %v", tt.want, gotB)
 			}
 		})
@@ -108,7 +109,7 @@ func TestFromBytesWithLength64(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			gotB := FromBytesWithLength64(tt.b)
-			if !goutils.Equal(gotB, tt.want) {
+			if !compare.Equal(gotB, tt.want) {
 				t.Errorf("Want %v, got %v", tt.want, gotB)
 			}
 		})
@@ -141,7 +142,7 @@ func TestReadWithLength32(t *testing.T) {
 			got, err := ReadBytesWithLength32(buf)
 			if (err == nil) == tt.wantErr {
 				t.Errorf("err is %v, but want %v\n", err, tt.wantErr)
-			} else if !goutils.Equal(got, tt.want) {
+			} else if !compare.Equal(got, tt.want) {
 				t.Errorf("Want %v, got %v", tt.want, got)
 			}
 		})
@@ -174,7 +175,7 @@ func TestReadWithLength64(t *testing.T) {
 			got, err := ReadBytesWithLength64(buf)
 			if (err == nil) == tt.wantErr {
 				t.Errorf("err is %v, but want %v\n", err, tt.wantErr)
-			} else if !goutils.Equal(got, tt.want) {
+			} else if !compare.Equal(got, tt.want) {
 				t.Errorf("Want %v, got %v", tt.want, got)
 			}
 		})
@@ -185,7 +186,7 @@ func TestNewBuffer(t *testing.T) {
 	t.Run("buffer", func(t *testing.T) {
 		buf := NewBuffer()
 		buf.Write([]byte{0x01})
-		if !goutils.Equal(buf.Bytes(), []byte{0x01}) {
+		if !compare.Equal(buf.Bytes(), []byte{0x01}) {
 			t.Errorf("NewBuffer() = %v, want 0x01", buf.Bytes())
 		}
 	})

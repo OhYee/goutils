@@ -5,7 +5,7 @@ package bytes
 
 import (
 	"bytes"
-	"github.com/OhYee/goutils"
+	"github.com/OhYee/goutils/compare"
 	"testing"
 )
 
@@ -36,7 +36,7 @@ func TestReadUint8(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadUint8 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadUint8() = %v, want %v", got, tt.want)
 			}
 		})
@@ -69,7 +69,7 @@ func TestReadUint16(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadUint16 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadUint16() = %v, want %v", got, tt.want)
 			}
 		})
@@ -102,7 +102,7 @@ func TestReadUint32(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadUint32 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadUint32() = %v, want %v", got, tt.want)
 			}
 		})
@@ -135,7 +135,7 @@ func TestReadUint64(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadUint64 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadUint64() = %v, want %v", got, tt.want)
 			}
 		})
@@ -175,7 +175,7 @@ func TestReadInt8(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadInt8 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadInt8() = %v, want %v", got, tt.want)
 			}
 		})
@@ -208,7 +208,7 @@ func TestReadInt16(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadInt16 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadInt16() = %v, want %v", got, tt.want)
 			}
 		})
@@ -241,7 +241,7 @@ func TestReadInt32(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadInt32 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadInt32() = %v, want %v", got, tt.want)
 			}
 		})
@@ -274,7 +274,7 @@ func TestReadInt64(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadInt64 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadInt64() = %v, want %v", got, tt.want)
 			}
 		})
@@ -307,7 +307,7 @@ func TestReadFloat32(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadFloat32 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadFloat32() = %v, want %v", got, tt.want)
 			}
 		})
@@ -340,7 +340,7 @@ func TestReadFloat64(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ReadFloat64 want error %v, but got %v\n", tt.wantErr, err)
 			}
-			if !tt.wantErr && !goutils.Equal(got, tt.want) {
+			if !tt.wantErr && !compare.Equal(got, tt.want) {
 				t.Errorf("ReadFloat64() = %v, want %v", got, tt.want)
 			}
 		})

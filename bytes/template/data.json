@@ -155,7 +155,7 @@
             "package": "bytes",
             "import": [
                 "testing",
-                "github.com/OhYee/goutils"
+                "github.com/OhYee/goutils/compare"
             ],
             "output": "../transfer_test.go",
             "body": [
@@ -224,7 +224,7 @@
             "import": [
                 "bytes",
                 "testing",
-                "github.com/OhYee/goutils"
+                "github.com/OhYee/goutils/compare"
             ],
             "output": "../read_test.go",
             "body": [

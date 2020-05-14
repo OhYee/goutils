@@ -14,7 +14,7 @@ func TestFrom{{upperFirstChar .type}}(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotB := From{{upperFirstChar .type}}(tt.value); !goutils.Equal(gotB, tt.wantB) {
+			if gotB := From{{upperFirstChar .type}}(tt.value); !compare.Equal(gotB, tt.wantB) {
 				t.Errorf("From{{upperFirstChar .type}}() = %v, want %v", gotB, tt.wantB)
 			}
 		})
@@ -37,7 +37,7 @@ func TestTo{{upperFirstChar .type}}(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := To{{upperFirstChar .type}}(tt.b); !goutils.Equal(got, tt.want) {
+			if got := To{{upperFirstChar .type}}(tt.b); !compare.Equal(got, tt.want) {
 				t.Errorf("To{{upperFirstChar .type}}() = %v, want %v", got, tt.want)
 			}
 		})

@@ -1,8 +1,9 @@
 package transfer
 
 import (
-	"github.com/OhYee/goutils"
 	"testing"
+
+	"github.com/OhYee/goutils/compare"
 )
 
 func TestToInterfaceSlice(t *testing.T) {
@@ -30,7 +31,7 @@ func TestToInterfaceSlice(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotS := ToInterfaceSlice(tt.v); !goutils.Equal(gotS, tt.want) {
+			if gotS := ToInterfaceSlice(tt.v); !compare.Equal(gotS, tt.want) {
 				t.Errorf("ToInterfaceSlice() = %v, want %v", gotS, tt.want)
 			}
 		})

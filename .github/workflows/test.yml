@@ -1,5 +1,5 @@
-name: master_test
-on: 
+name: test
+on:
   push:
     branchs:
     - master

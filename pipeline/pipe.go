@@ -1,4 +1,4 @@
-package goutils
+package pipeline
 
 import (
 	"fmt"
@@ -16,8 +16,8 @@ type Pipe struct {
 	mutex  *sync.Mutex
 }
 
-// NewPipe create a pipe
-func NewPipe(length int, b ...[]byte) Pipe {
+// New create a pipe
+func New(length int, b ...[]byte) Pipe {
 	p := Pipe{
 		data:   make(chan byte, length),
 		close:  make(chan bool, 1),

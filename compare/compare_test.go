@@ -1,11 +1,15 @@
-package goutils
+package compare
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/OhYee/goutils"
+)
 
 func TestEqual(t *testing.T) {
 	type args struct {
-		a Any
-		b Any
+		a goutils.Any
+		b goutils.Any
 	}
 	tests := []struct {
 		name string

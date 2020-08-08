@@ -1,8 +1,8 @@
 // All{{if ne . "any"}}{{upperFirstChar .}}{{end}} return true if all values are matched
-func All{{if ne . "any"}}{{upperFirstChar .}}{{end}}(f func({{.}})bool, input []{{.}}) (output bool){
+func All{{if ne . "any"}}{{upperFirstChar .}}{{end}}(f func({{.}}, int)bool, input []{{.}}) (output bool){
     output = true
-    for _, data := range input {
-        output = output && f(data)
+    for idx, data := range input {
+        output = output && f(data, idx)
         if !output {
             break
         }

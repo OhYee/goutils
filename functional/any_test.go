@@ -10,7 +10,7 @@ import (
 
 func TestAnyString(t *testing.T) {
 	type args struct {
-		f     func(string) bool
+		f     func(string, int) bool
 		input []string
 	}
 	tests := []struct {
@@ -20,17 +20,17 @@ func TestAnyString(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(s string) bool { return len(s) > 0 }, input: []string{"a", "bb", "ccc", "dddd"}},
+			args:       args{f: func(s string, idx int) bool { return len(s) > 0 }, input: []string{"a", "bb", "ccc", "dddd"}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(s string) bool { return len(s) > 2 }, input: []string{"a", "bb", "ccc", "dddd"}},
+			args:       args{f: func(s string, idx int) bool { return len(s) > 2 }, input: []string{"a", "bb", "ccc", "dddd"}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(s string) bool { return len(s) > 5 }, input: []string{"a", "bb", "ccc", "dddd"}},
+			args:       args{f: func(s string, idx int) bool { return len(s) > 5 }, input: []string{"a", "bb", "ccc", "dddd"}},
 			wantOutput: false,
 		},
 	}
@@ -45,7 +45,7 @@ func TestAnyString(t *testing.T) {
 
 func TestAnyInt(t *testing.T) {
 	type args struct {
-		f     func(int) bool
+		f     func(int, int) bool
 		input []int
 	}
 	tests := []struct {
@@ -55,17 +55,17 @@ func TestAnyInt(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n int) bool { return n > 0 }, input: []int{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int, idx int) bool { return n > 0 }, input: []int{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n int) bool { return n > 3 }, input: []int{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int, idx int) bool { return n > 3 }, input: []int{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n int) bool { return n > 5 }, input: []int{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int, idx int) bool { return n > 5 }, input: []int{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -80,7 +80,7 @@ func TestAnyInt(t *testing.T) {
 
 func TestAnyInt8(t *testing.T) {
 	type args struct {
-		f     func(int8) bool
+		f     func(int8, int) bool
 		input []int8
 	}
 	tests := []struct {
@@ -90,17 +90,17 @@ func TestAnyInt8(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n int8) bool { return n > 0 }, input: []int8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int8, idx int) bool { return n > 0 }, input: []int8{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n int8) bool { return n > 3 }, input: []int8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int8, idx int) bool { return n > 3 }, input: []int8{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n int8) bool { return n > 5 }, input: []int8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int8, idx int) bool { return n > 5 }, input: []int8{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -115,7 +115,7 @@ func TestAnyInt8(t *testing.T) {
 
 func TestAnyInt16(t *testing.T) {
 	type args struct {
-		f     func(int16) bool
+		f     func(int16, int) bool
 		input []int16
 	}
 	tests := []struct {
@@ -125,17 +125,17 @@ func TestAnyInt16(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n int16) bool { return n > 0 }, input: []int16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int16, idx int) bool { return n > 0 }, input: []int16{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n int16) bool { return n > 3 }, input: []int16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int16, idx int) bool { return n > 3 }, input: []int16{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n int16) bool { return n > 5 }, input: []int16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int16, idx int) bool { return n > 5 }, input: []int16{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -150,7 +150,7 @@ func TestAnyInt16(t *testing.T) {
 
 func TestAnyInt32(t *testing.T) {
 	type args struct {
-		f     func(int32) bool
+		f     func(int32, int) bool
 		input []int32
 	}
 	tests := []struct {
@@ -160,17 +160,17 @@ func TestAnyInt32(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n int32) bool { return n > 0 }, input: []int32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int32, idx int) bool { return n > 0 }, input: []int32{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n int32) bool { return n > 3 }, input: []int32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int32, idx int) bool { return n > 3 }, input: []int32{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n int32) bool { return n > 5 }, input: []int32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int32, idx int) bool { return n > 5 }, input: []int32{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -185,7 +185,7 @@ func TestAnyInt32(t *testing.T) {
 
 func TestAnyInt64(t *testing.T) {
 	type args struct {
-		f     func(int64) bool
+		f     func(int64, int) bool
 		input []int64
 	}
 	tests := []struct {
@@ -195,17 +195,17 @@ func TestAnyInt64(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n int64) bool { return n > 0 }, input: []int64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int64, idx int) bool { return n > 0 }, input: []int64{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n int64) bool { return n > 3 }, input: []int64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int64, idx int) bool { return n > 3 }, input: []int64{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n int64) bool { return n > 5 }, input: []int64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int64, idx int) bool { return n > 5 }, input: []int64{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -220,7 +220,7 @@ func TestAnyInt64(t *testing.T) {
 
 func TestAnyUint8(t *testing.T) {
 	type args struct {
-		f     func(uint8) bool
+		f     func(uint8, int) bool
 		input []uint8
 	}
 	tests := []struct {
@@ -230,17 +230,17 @@ func TestAnyUint8(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n uint8) bool { return n > 0 }, input: []uint8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint8, idx int) bool { return n > 0 }, input: []uint8{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n uint8) bool { return n > 3 }, input: []uint8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint8, idx int) bool { return n > 3 }, input: []uint8{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n uint8) bool { return n > 5 }, input: []uint8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint8, idx int) bool { return n > 5 }, input: []uint8{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -255,7 +255,7 @@ func TestAnyUint8(t *testing.T) {
 
 func TestAnyUint16(t *testing.T) {
 	type args struct {
-		f     func(uint16) bool
+		f     func(uint16, int) bool
 		input []uint16
 	}
 	tests := []struct {
@@ -265,17 +265,17 @@ func TestAnyUint16(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n uint16) bool { return n > 0 }, input: []uint16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint16, idx int) bool { return n > 0 }, input: []uint16{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n uint16) bool { return n > 3 }, input: []uint16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint16, idx int) bool { return n > 3 }, input: []uint16{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n uint16) bool { return n > 5 }, input: []uint16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint16, idx int) bool { return n > 5 }, input: []uint16{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -290,7 +290,7 @@ func TestAnyUint16(t *testing.T) {
 
 func TestAnyUint32(t *testing.T) {
 	type args struct {
-		f     func(uint32) bool
+		f     func(uint32, int) bool
 		input []uint32
 	}
 	tests := []struct {
@@ -300,17 +300,17 @@ func TestAnyUint32(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n uint32) bool { return n > 0 }, input: []uint32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint32, idx int) bool { return n > 0 }, input: []uint32{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n uint32) bool { return n > 3 }, input: []uint32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint32, idx int) bool { return n > 3 }, input: []uint32{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n uint32) bool { return n > 5 }, input: []uint32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint32, idx int) bool { return n > 5 }, input: []uint32{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -325,7 +325,7 @@ func TestAnyUint32(t *testing.T) {
 
 func TestAnyUint64(t *testing.T) {
 	type args struct {
-		f     func(uint64) bool
+		f     func(uint64, int) bool
 		input []uint64
 	}
 	tests := []struct {
@@ -335,17 +335,17 @@ func TestAnyUint64(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n uint64) bool { return n > 0 }, input: []uint64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint64, idx int) bool { return n > 0 }, input: []uint64{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n uint64) bool { return n > 3 }, input: []uint64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint64, idx int) bool { return n > 3 }, input: []uint64{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n uint64) bool { return n > 5 }, input: []uint64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint64, idx int) bool { return n > 5 }, input: []uint64{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -360,7 +360,7 @@ func TestAnyUint64(t *testing.T) {
 
 func TestAnyFloat32(t *testing.T) {
 	type args struct {
-		f     func(float32) bool
+		f     func(float32, int) bool
 		input []float32
 	}
 	tests := []struct {
@@ -370,17 +370,17 @@ func TestAnyFloat32(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n float32) bool { return n > 0 }, input: []float32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float32, idx int) bool { return n > 0 }, input: []float32{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n float32) bool { return n > 3 }, input: []float32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float32, idx int) bool { return n > 3 }, input: []float32{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n float32) bool { return n > 5 }, input: []float32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float32, idx int) bool { return n > 5 }, input: []float32{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -395,7 +395,7 @@ func TestAnyFloat32(t *testing.T) {
 
 func TestAnyFloat64(t *testing.T) {
 	type args struct {
-		f     func(float64) bool
+		f     func(float64, int) bool
 		input []float64
 	}
 	tests := []struct {
@@ -405,17 +405,17 @@ func TestAnyFloat64(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n float64) bool { return n > 0 }, input: []float64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float64, idx int) bool { return n > 0 }, input: []float64{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n float64) bool { return n > 3 }, input: []float64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float64, idx int) bool { return n > 3 }, input: []float64{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n float64) bool { return n > 5 }, input: []float64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float64, idx int) bool { return n > 5 }, input: []float64{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -430,7 +430,7 @@ func TestAnyFloat64(t *testing.T) {
 
 func TestAnyByte(t *testing.T) {
 	type args struct {
-		f     func(byte) bool
+		f     func(byte, int) bool
 		input []byte
 	}
 	tests := []struct {
@@ -440,17 +440,17 @@ func TestAnyByte(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(n byte) bool { return n > 0 }, input: []byte{1, 2, 3, 4, 5}},
+			args:       args{f: func(n byte, idx int) bool { return n > 0 }, input: []byte{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(n byte) bool { return n > 3 }, input: []byte{1, 2, 3, 4, 5}},
+			args:       args{f: func(n byte, idx int) bool { return n > 3 }, input: []byte{1, 2, 3, 4, 5}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(n byte) bool { return n > 5 }, input: []byte{1, 2, 3, 4, 5}},
+			args:       args{f: func(n byte, idx int) bool { return n > 5 }, input: []byte{1, 2, 3, 4, 5}},
 			wantOutput: false,
 		},
 	}
@@ -465,7 +465,7 @@ func TestAnyByte(t *testing.T) {
 
 func TestAny(t *testing.T) {
 	type args struct {
-		f     func(any) bool
+		f     func(any, int) bool
 		input []any
 	}
 	tests := []struct {
@@ -475,17 +475,17 @@ func TestAny(t *testing.T) {
 	}{
 		{
 			name:       "all item is true",
-			args:       args{f: func(s any) bool { return reflect.TypeOf(s).Kind() == reflect.Int }, input: []any{1, 2}},
+			args:       args{f: func(s any, idx int) bool { return reflect.TypeOf(s).Kind() == reflect.Int }, input: []any{1, 2}},
 			wantOutput: true,
 		},
 		{
 			name:       "some items are true and others are false",
-			args:       args{f: func(s any) bool { return reflect.TypeOf(s).Kind() == reflect.Int }, input: []any{1, 2, "A"}},
+			args:       args{f: func(s any, idx int) bool { return reflect.TypeOf(s).Kind() == reflect.Int }, input: []any{1, 2, "A"}},
 			wantOutput: true,
 		},
 		{
 			name:       "all item is false",
-			args:       args{f: func(s any) bool { return reflect.TypeOf(s).Kind() == reflect.Int }, input: []any{"A", "B"}},
+			args:       args{f: func(s any, idx int) bool { return reflect.TypeOf(s).Kind() == reflect.Int }, input: []any{"A", "B"}},
 			wantOutput: false,
 		},
 	}

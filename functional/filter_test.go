@@ -10,7 +10,7 @@ import (
 
 func TestFilterString(t *testing.T) {
 	type args struct {
-		f     func(string) bool
+		f     func(string, int) bool
 		input []string
 	}
 	tests := []struct {
@@ -20,22 +20,22 @@ func TestFilterString(t *testing.T) {
 	}{
 		{
 			name:       "test all true",
-			args:       args{f: func(s string) bool { return true }, input: []string{"a", "b", "C", "1"}},
+			args:       args{f: func(s string, idx int) bool { return true }, input: []string{"a", "b", "C", "1"}},
 			wantOutput: []string{"a", "b", "C", "1"},
 		},
 		{
 			name:       "test len > 2",
-			args:       args{f: func(s string) bool { return len(s) > 2 }, input: []string{"a", "b", "C", "1"}},
+			args:       args{f: func(s string, idx int) bool { return len(s) > 2 }, input: []string{"a", "b", "C", "1"}},
 			wantOutput: []string{},
 		},
 		{
 			name:       "test len > 1",
-			args:       args{f: func(s string) bool { return len(s) > 1 }, input: []string{"ab", "bc", "Cd", "1"}},
+			args:       args{f: func(s string, idx int) bool { return len(s) > 1 }, input: []string{"ab", "bc", "Cd", "1"}},
 			wantOutput: []string{"ab", "bc", "Cd"},
 		},
 		{
 			name:       "test first rune is a",
-			args:       args{f: func(s string) bool { return s[0] == 'a' }, input: []string{"ab", "bc", "Cd", "1"}},
+			args:       args{f: func(s string, idx int) bool { return s[0] == 'a' }, input: []string{"ab", "bc", "Cd", "1"}},
 			wantOutput: []string{"ab"},
 		},
 	}
@@ -50,7 +50,7 @@ func TestFilterString(t *testing.T) {
 
 func TestFilterInt(t *testing.T) {
 	type args struct {
-		f     func(int) bool
+		f     func(int, int) bool
 		input []int
 	}
 	tests := []struct {
@@ -60,17 +60,17 @@ func TestFilterInt(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n int) bool { return n > 3 }, input: []int{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int, idx int) bool { return n > 3 }, input: []int{1, 2, 3, 4, 5}},
 			wantOutput: []int{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n int) bool { return n < 2 }, input: []int{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int, idx int) bool { return n < 2 }, input: []int{1, 2, 3, 4, 5}},
 			wantOutput: []int{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n int) bool { return n%2 == 0 }, input: []int{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int, idx int) bool { return n%2 == 0 }, input: []int{1, 2, 3, 4, 5}},
 			wantOutput: []int{2, 4},
 		},
 	}
@@ -85,7 +85,7 @@ func TestFilterInt(t *testing.T) {
 
 func TestFilterInt8(t *testing.T) {
 	type args struct {
-		f     func(int8) bool
+		f     func(int8, int) bool
 		input []int8
 	}
 	tests := []struct {
@@ -95,17 +95,17 @@ func TestFilterInt8(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n int8) bool { return n > 3 }, input: []int8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int8, idx int) bool { return n > 3 }, input: []int8{1, 2, 3, 4, 5}},
 			wantOutput: []int8{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n int8) bool { return n < 2 }, input: []int8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int8, idx int) bool { return n < 2 }, input: []int8{1, 2, 3, 4, 5}},
 			wantOutput: []int8{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n int8) bool { return n%2 == 0 }, input: []int8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int8, idx int) bool { return n%2 == 0 }, input: []int8{1, 2, 3, 4, 5}},
 			wantOutput: []int8{2, 4},
 		},
 	}
@@ -120,7 +120,7 @@ func TestFilterInt8(t *testing.T) {
 
 func TestFilterInt16(t *testing.T) {
 	type args struct {
-		f     func(int16) bool
+		f     func(int16, int) bool
 		input []int16
 	}
 	tests := []struct {
@@ -130,17 +130,17 @@ func TestFilterInt16(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n int16) bool { return n > 3 }, input: []int16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int16, idx int) bool { return n > 3 }, input: []int16{1, 2, 3, 4, 5}},
 			wantOutput: []int16{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n int16) bool { return n < 2 }, input: []int16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int16, idx int) bool { return n < 2 }, input: []int16{1, 2, 3, 4, 5}},
 			wantOutput: []int16{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n int16) bool { return n%2 == 0 }, input: []int16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int16, idx int) bool { return n%2 == 0 }, input: []int16{1, 2, 3, 4, 5}},
 			wantOutput: []int16{2, 4},
 		},
 	}
@@ -155,7 +155,7 @@ func TestFilterInt16(t *testing.T) {
 
 func TestFilterInt32(t *testing.T) {
 	type args struct {
-		f     func(int32) bool
+		f     func(int32, int) bool
 		input []int32
 	}
 	tests := []struct {
@@ -165,17 +165,17 @@ func TestFilterInt32(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n int32) bool { return n > 3 }, input: []int32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int32, idx int) bool { return n > 3 }, input: []int32{1, 2, 3, 4, 5}},
 			wantOutput: []int32{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n int32) bool { return n < 2 }, input: []int32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int32, idx int) bool { return n < 2 }, input: []int32{1, 2, 3, 4, 5}},
 			wantOutput: []int32{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n int32) bool { return n%2 == 0 }, input: []int32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int32, idx int) bool { return n%2 == 0 }, input: []int32{1, 2, 3, 4, 5}},
 			wantOutput: []int32{2, 4},
 		},
 	}
@@ -190,7 +190,7 @@ func TestFilterInt32(t *testing.T) {
 
 func TestFilterInt64(t *testing.T) {
 	type args struct {
-		f     func(int64) bool
+		f     func(int64, int) bool
 		input []int64
 	}
 	tests := []struct {
@@ -200,17 +200,17 @@ func TestFilterInt64(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n int64) bool { return n > 3 }, input: []int64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int64, idx int) bool { return n > 3 }, input: []int64{1, 2, 3, 4, 5}},
 			wantOutput: []int64{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n int64) bool { return n < 2 }, input: []int64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int64, idx int) bool { return n < 2 }, input: []int64{1, 2, 3, 4, 5}},
 			wantOutput: []int64{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n int64) bool { return n%2 == 0 }, input: []int64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n int64, idx int) bool { return n%2 == 0 }, input: []int64{1, 2, 3, 4, 5}},
 			wantOutput: []int64{2, 4},
 		},
 	}
@@ -225,7 +225,7 @@ func TestFilterInt64(t *testing.T) {
 
 func TestFilterUint8(t *testing.T) {
 	type args struct {
-		f     func(uint8) bool
+		f     func(uint8, int) bool
 		input []uint8
 	}
 	tests := []struct {
@@ -235,17 +235,17 @@ func TestFilterUint8(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n uint8) bool { return n > 3 }, input: []uint8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint8, idx int) bool { return n > 3 }, input: []uint8{1, 2, 3, 4, 5}},
 			wantOutput: []uint8{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n uint8) bool { return n < 2 }, input: []uint8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint8, idx int) bool { return n < 2 }, input: []uint8{1, 2, 3, 4, 5}},
 			wantOutput: []uint8{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n uint8) bool { return n%2 == 0 }, input: []uint8{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint8, idx int) bool { return n%2 == 0 }, input: []uint8{1, 2, 3, 4, 5}},
 			wantOutput: []uint8{2, 4},
 		},
 	}
@@ -260,7 +260,7 @@ func TestFilterUint8(t *testing.T) {
 
 func TestFilterUint16(t *testing.T) {
 	type args struct {
-		f     func(uint16) bool
+		f     func(uint16, int) bool
 		input []uint16
 	}
 	tests := []struct {
@@ -270,17 +270,17 @@ func TestFilterUint16(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n uint16) bool { return n > 3 }, input: []uint16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint16, idx int) bool { return n > 3 }, input: []uint16{1, 2, 3, 4, 5}},
 			wantOutput: []uint16{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n uint16) bool { return n < 2 }, input: []uint16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint16, idx int) bool { return n < 2 }, input: []uint16{1, 2, 3, 4, 5}},
 			wantOutput: []uint16{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n uint16) bool { return n%2 == 0 }, input: []uint16{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint16, idx int) bool { return n%2 == 0 }, input: []uint16{1, 2, 3, 4, 5}},
 			wantOutput: []uint16{2, 4},
 		},
 	}
@@ -295,7 +295,7 @@ func TestFilterUint16(t *testing.T) {
 
 func TestFilterUint32(t *testing.T) {
 	type args struct {
-		f     func(uint32) bool
+		f     func(uint32, int) bool
 		input []uint32
 	}
 	tests := []struct {
@@ -305,17 +305,17 @@ func TestFilterUint32(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n uint32) bool { return n > 3 }, input: []uint32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint32, idx int) bool { return n > 3 }, input: []uint32{1, 2, 3, 4, 5}},
 			wantOutput: []uint32{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n uint32) bool { return n < 2 }, input: []uint32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint32, idx int) bool { return n < 2 }, input: []uint32{1, 2, 3, 4, 5}},
 			wantOutput: []uint32{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n uint32) bool { return n%2 == 0 }, input: []uint32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint32, idx int) bool { return n%2 == 0 }, input: []uint32{1, 2, 3, 4, 5}},
 			wantOutput: []uint32{2, 4},
 		},
 	}
@@ -330,7 +330,7 @@ func TestFilterUint32(t *testing.T) {
 
 func TestFilterUint64(t *testing.T) {
 	type args struct {
-		f     func(uint64) bool
+		f     func(uint64, int) bool
 		input []uint64
 	}
 	tests := []struct {
@@ -340,17 +340,17 @@ func TestFilterUint64(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n uint64) bool { return n > 3 }, input: []uint64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint64, idx int) bool { return n > 3 }, input: []uint64{1, 2, 3, 4, 5}},
 			wantOutput: []uint64{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n uint64) bool { return n < 2 }, input: []uint64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint64, idx int) bool { return n < 2 }, input: []uint64{1, 2, 3, 4, 5}},
 			wantOutput: []uint64{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n uint64) bool { return n%2 == 0 }, input: []uint64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n uint64, idx int) bool { return n%2 == 0 }, input: []uint64{1, 2, 3, 4, 5}},
 			wantOutput: []uint64{2, 4},
 		},
 	}
@@ -365,7 +365,7 @@ func TestFilterUint64(t *testing.T) {
 
 func TestFilterFloat32(t *testing.T) {
 	type args struct {
-		f     func(float32) bool
+		f     func(float32, int) bool
 		input []float32
 	}
 	tests := []struct {
@@ -375,12 +375,12 @@ func TestFilterFloat32(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n float32) bool { return n > 3 }, input: []float32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float32, idx int) bool { return n > 3 }, input: []float32{1, 2, 3, 4, 5}},
 			wantOutput: []float32{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n float32) bool { return n < 2 }, input: []float32{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float32, idx int) bool { return n < 2 }, input: []float32{1, 2, 3, 4, 5}},
 			wantOutput: []float32{1},
 		},
 	}
@@ -395,7 +395,7 @@ func TestFilterFloat32(t *testing.T) {
 
 func TestFilterFloat64(t *testing.T) {
 	type args struct {
-		f     func(float64) bool
+		f     func(float64, int) bool
 		input []float64
 	}
 	tests := []struct {
@@ -405,12 +405,12 @@ func TestFilterFloat64(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n float64) bool { return n > 3 }, input: []float64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float64, idx int) bool { return n > 3 }, input: []float64{1, 2, 3, 4, 5}},
 			wantOutput: []float64{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n float64) bool { return n < 2 }, input: []float64{1, 2, 3, 4, 5}},
+			args:       args{f: func(n float64, idx int) bool { return n < 2 }, input: []float64{1, 2, 3, 4, 5}},
 			wantOutput: []float64{1},
 		},
 	}
@@ -425,7 +425,7 @@ func TestFilterFloat64(t *testing.T) {
 
 func TestFilterByte(t *testing.T) {
 	type args struct {
-		f     func(byte) bool
+		f     func(byte, int) bool
 		input []byte
 	}
 	tests := []struct {
@@ -435,17 +435,17 @@ func TestFilterByte(t *testing.T) {
 	}{
 		{
 			name:       "more than 3",
-			args:       args{f: func(n byte) bool { return n > 3 }, input: []byte{1, 2, 3, 4, 5}},
+			args:       args{f: func(n byte, idx int) bool { return n > 3 }, input: []byte{1, 2, 3, 4, 5}},
 			wantOutput: []byte{4, 5},
 		},
 		{
 			name:       "less than 2",
-			args:       args{f: func(n byte) bool { return n < 2 }, input: []byte{1, 2, 3, 4, 5}},
+			args:       args{f: func(n byte, idx int) bool { return n < 2 }, input: []byte{1, 2, 3, 4, 5}},
 			wantOutput: []byte{1},
 		},
 		{
 			name:       "even number",
-			args:       args{f: func(n byte) bool { return n%2 == 0 }, input: []byte{1, 2, 3, 4, 5}},
+			args:       args{f: func(n byte, idx int) bool { return n%2 == 0 }, input: []byte{1, 2, 3, 4, 5}},
 			wantOutput: []byte{2, 4},
 		},
 	}
@@ -460,7 +460,7 @@ func TestFilterByte(t *testing.T) {
 
 func TestFilter(t *testing.T) {
 	type args struct {
-		f     func(any) bool
+		f     func(any, int) bool
 		input []any
 	}
 	tests := []struct {
@@ -470,12 +470,12 @@ func TestFilter(t *testing.T) {
 	}{
 		{
 			name:       "is int",
-			args:       args{f: func(s any) bool { return reflect.TypeOf(s).Kind() == reflect.Int }, input: []any{1, "A", 2, "c"}},
+			args:       args{f: func(s any, idx int) bool { return reflect.TypeOf(s).Kind() == reflect.Int }, input: []any{1, "A", 2, "c"}},
 			wantOutput: []any{1, 2},
 		},
 		{
 			name:       "is string",
-			args:       args{f: func(s any) bool { return reflect.TypeOf(s).Kind() == reflect.String }, input: []any{1, "A", 2, "c"}},
+			args:       args{f: func(s any, idx int) bool { return reflect.TypeOf(s).Kind() == reflect.String }, input: []any{1, "A", 2, "c"}},
 			wantOutput: []any{"A", "c"},
 		},
 	}

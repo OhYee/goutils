@@ -6,10 +6,10 @@ package fp
 import ()
 
 // AnyString return true if any of values is matched
-func AnyString(f func(string) bool, input []string) (output bool) {
+func AnyString(f func(string, int) bool, input []string) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -18,10 +18,10 @@ func AnyString(f func(string) bool, input []string) (output bool) {
 }
 
 // AnyInt return true if any of values is matched
-func AnyInt(f func(int) bool, input []int) (output bool) {
+func AnyInt(f func(int, int) bool, input []int) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -30,10 +30,10 @@ func AnyInt(f func(int) bool, input []int) (output bool) {
 }
 
 // AnyInt8 return true if any of values is matched
-func AnyInt8(f func(int8) bool, input []int8) (output bool) {
+func AnyInt8(f func(int8, int) bool, input []int8) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -42,10 +42,10 @@ func AnyInt8(f func(int8) bool, input []int8) (output bool) {
 }
 
 // AnyInt16 return true if any of values is matched
-func AnyInt16(f func(int16) bool, input []int16) (output bool) {
+func AnyInt16(f func(int16, int) bool, input []int16) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -54,10 +54,10 @@ func AnyInt16(f func(int16) bool, input []int16) (output bool) {
 }
 
 // AnyInt32 return true if any of values is matched
-func AnyInt32(f func(int32) bool, input []int32) (output bool) {
+func AnyInt32(f func(int32, int) bool, input []int32) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -66,10 +66,10 @@ func AnyInt32(f func(int32) bool, input []int32) (output bool) {
 }
 
 // AnyInt64 return true if any of values is matched
-func AnyInt64(f func(int64) bool, input []int64) (output bool) {
+func AnyInt64(f func(int64, int) bool, input []int64) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -78,10 +78,10 @@ func AnyInt64(f func(int64) bool, input []int64) (output bool) {
 }
 
 // AnyUint8 return true if any of values is matched
-func AnyUint8(f func(uint8) bool, input []uint8) (output bool) {
+func AnyUint8(f func(uint8, int) bool, input []uint8) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -90,10 +90,10 @@ func AnyUint8(f func(uint8) bool, input []uint8) (output bool) {
 }
 
 // AnyUint16 return true if any of values is matched
-func AnyUint16(f func(uint16) bool, input []uint16) (output bool) {
+func AnyUint16(f func(uint16, int) bool, input []uint16) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -102,10 +102,10 @@ func AnyUint16(f func(uint16) bool, input []uint16) (output bool) {
 }
 
 // AnyUint32 return true if any of values is matched
-func AnyUint32(f func(uint32) bool, input []uint32) (output bool) {
+func AnyUint32(f func(uint32, int) bool, input []uint32) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -114,10 +114,10 @@ func AnyUint32(f func(uint32) bool, input []uint32) (output bool) {
 }
 
 // AnyUint64 return true if any of values is matched
-func AnyUint64(f func(uint64) bool, input []uint64) (output bool) {
+func AnyUint64(f func(uint64, int) bool, input []uint64) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -126,10 +126,10 @@ func AnyUint64(f func(uint64) bool, input []uint64) (output bool) {
 }
 
 // AnyFloat32 return true if any of values is matched
-func AnyFloat32(f func(float32) bool, input []float32) (output bool) {
+func AnyFloat32(f func(float32, int) bool, input []float32) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -138,10 +138,10 @@ func AnyFloat32(f func(float32) bool, input []float32) (output bool) {
 }
 
 // AnyFloat64 return true if any of values is matched
-func AnyFloat64(f func(float64) bool, input []float64) (output bool) {
+func AnyFloat64(f func(float64, int) bool, input []float64) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -150,10 +150,10 @@ func AnyFloat64(f func(float64) bool, input []float64) (output bool) {
 }
 
 // AnyByte return true if any of values is matched
-func AnyByte(f func(byte) bool, input []byte) (output bool) {
+func AnyByte(f func(byte, int) bool, input []byte) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}
@@ -162,10 +162,10 @@ func AnyByte(f func(byte) bool, input []byte) (output bool) {
 }
 
 // Any return true if any of values is matched
-func Any(f func(any) bool, input []any) (output bool) {
+func Any(f func(any, int) bool, input []any) (output bool) {
 	output = false
-	for _, data := range input {
-		output = output || f(data)
+	for idx, data := range input {
+		output = output || f(data, idx)
 		if output {
 			break
 		}

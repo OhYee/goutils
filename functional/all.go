@@ -6,10 +6,10 @@ package fp
 import ()
 
 // AllString return true if all values are matched
-func AllString(f func(string) bool, input []string) (output bool) {
+func AllString(f func(string, int) bool, input []string) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -18,10 +18,10 @@ func AllString(f func(string) bool, input []string) (output bool) {
 }
 
 // AllInt return true if all values are matched
-func AllInt(f func(int) bool, input []int) (output bool) {
+func AllInt(f func(int, int) bool, input []int) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -30,10 +30,10 @@ func AllInt(f func(int) bool, input []int) (output bool) {
 }
 
 // AllInt8 return true if all values are matched
-func AllInt8(f func(int8) bool, input []int8) (output bool) {
+func AllInt8(f func(int8, int) bool, input []int8) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -42,10 +42,10 @@ func AllInt8(f func(int8) bool, input []int8) (output bool) {
 }
 
 // AllInt16 return true if all values are matched
-func AllInt16(f func(int16) bool, input []int16) (output bool) {
+func AllInt16(f func(int16, int) bool, input []int16) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -54,10 +54,10 @@ func AllInt16(f func(int16) bool, input []int16) (output bool) {
 }
 
 // AllInt32 return true if all values are matched
-func AllInt32(f func(int32) bool, input []int32) (output bool) {
+func AllInt32(f func(int32, int) bool, input []int32) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -66,10 +66,10 @@ func AllInt32(f func(int32) bool, input []int32) (output bool) {
 }
 
 // AllInt64 return true if all values are matched
-func AllInt64(f func(int64) bool, input []int64) (output bool) {
+func AllInt64(f func(int64, int) bool, input []int64) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -78,10 +78,10 @@ func AllInt64(f func(int64) bool, input []int64) (output bool) {
 }
 
 // AllUint8 return true if all values are matched
-func AllUint8(f func(uint8) bool, input []uint8) (output bool) {
+func AllUint8(f func(uint8, int) bool, input []uint8) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -90,10 +90,10 @@ func AllUint8(f func(uint8) bool, input []uint8) (output bool) {
 }
 
 // AllUint16 return true if all values are matched
-func AllUint16(f func(uint16) bool, input []uint16) (output bool) {
+func AllUint16(f func(uint16, int) bool, input []uint16) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -102,10 +102,10 @@ func AllUint16(f func(uint16) bool, input []uint16) (output bool) {
 }
 
 // AllUint32 return true if all values are matched
-func AllUint32(f func(uint32) bool, input []uint32) (output bool) {
+func AllUint32(f func(uint32, int) bool, input []uint32) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -114,10 +114,10 @@ func AllUint32(f func(uint32) bool, input []uint32) (output bool) {
 }
 
 // AllUint64 return true if all values are matched
-func AllUint64(f func(uint64) bool, input []uint64) (output bool) {
+func AllUint64(f func(uint64, int) bool, input []uint64) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -126,10 +126,10 @@ func AllUint64(f func(uint64) bool, input []uint64) (output bool) {
 }
 
 // AllFloat32 return true if all values are matched
-func AllFloat32(f func(float32) bool, input []float32) (output bool) {
+func AllFloat32(f func(float32, int) bool, input []float32) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -138,10 +138,10 @@ func AllFloat32(f func(float32) bool, input []float32) (output bool) {
 }
 
 // AllFloat64 return true if all values are matched
-func AllFloat64(f func(float64) bool, input []float64) (output bool) {
+func AllFloat64(f func(float64, int) bool, input []float64) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -150,10 +150,10 @@ func AllFloat64(f func(float64) bool, input []float64) (output bool) {
 }
 
 // AllByte return true if all values are matched
-func AllByte(f func(byte) bool, input []byte) (output bool) {
+func AllByte(f func(byte, int) bool, input []byte) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}
@@ -162,10 +162,10 @@ func AllByte(f func(byte) bool, input []byte) (output bool) {
 }
 
 // All return true if all values are matched
-func All(f func(any) bool, input []any) (output bool) {
+func All(f func(any, int) bool, input []any) (output bool) {
 	output = true
-	for _, data := range input {
-		output = output && f(data)
+	for idx, data := range input {
+		output = output && f(data, idx)
 		if !output {
 			break
 		}

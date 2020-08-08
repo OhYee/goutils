@@ -11,7 +11,7 @@ import (
 
 func TestReduceString(t *testing.T) {
 	type args struct {
-		f     func(string, string) string
+		f     func(string, string, int) string
 		input []string
 	}
 	tests := []struct {
@@ -21,7 +21,7 @@ func TestReduceString(t *testing.T) {
 	}{
 		{
 			name:       "concat string",
-			args:       args{f: func(a string, b string) string { return a + b }, input: []string{"a", "bb", "ccc", "dddd"}},
+			args:       args{f: func(a string, b string, idx int) string { return a + b }, input: []string{"a", "bb", "ccc", "dddd"}},
 			wantOutput: "abbcccdddd",
 		},
 	}
@@ -36,7 +36,7 @@ func TestReduceString(t *testing.T) {
 
 func TestReduceInt(t *testing.T) {
 	type args struct {
-		f     func(int, int) int
+		f     func(int, int, int) int
 		input []int
 	}
 	tests := []struct {
@@ -46,7 +46,7 @@ func TestReduceInt(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a int, b int) int { return a + b }, input: []int{1, 2, 3, 4}},
+			args:       args{f: func(a int, b int, idx int) int { return a + b }, input: []int{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -61,7 +61,7 @@ func TestReduceInt(t *testing.T) {
 
 func TestReduceInt8(t *testing.T) {
 	type args struct {
-		f     func(int8, int8) int8
+		f     func(int8, int8, int) int8
 		input []int8
 	}
 	tests := []struct {
@@ -71,7 +71,7 @@ func TestReduceInt8(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a int8, b int8) int8 { return a + b }, input: []int8{1, 2, 3, 4}},
+			args:       args{f: func(a int8, b int8, idx int) int8 { return a + b }, input: []int8{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -86,7 +86,7 @@ func TestReduceInt8(t *testing.T) {
 
 func TestReduceInt16(t *testing.T) {
 	type args struct {
-		f     func(int16, int16) int16
+		f     func(int16, int16, int) int16
 		input []int16
 	}
 	tests := []struct {
@@ -96,7 +96,7 @@ func TestReduceInt16(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a int16, b int16) int16 { return a + b }, input: []int16{1, 2, 3, 4}},
+			args:       args{f: func(a int16, b int16, idx int) int16 { return a + b }, input: []int16{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -111,7 +111,7 @@ func TestReduceInt16(t *testing.T) {
 
 func TestReduceInt32(t *testing.T) {
 	type args struct {
-		f     func(int32, int32) int32
+		f     func(int32, int32, int) int32
 		input []int32
 	}
 	tests := []struct {
@@ -121,7 +121,7 @@ func TestReduceInt32(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a int32, b int32) int32 { return a + b }, input: []int32{1, 2, 3, 4}},
+			args:       args{f: func(a int32, b int32, idx int) int32 { return a + b }, input: []int32{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -136,7 +136,7 @@ func TestReduceInt32(t *testing.T) {
 
 func TestReduceInt64(t *testing.T) {
 	type args struct {
-		f     func(int64, int64) int64
+		f     func(int64, int64, int) int64
 		input []int64
 	}
 	tests := []struct {
@@ -146,7 +146,7 @@ func TestReduceInt64(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a int64, b int64) int64 { return a + b }, input: []int64{1, 2, 3, 4}},
+			args:       args{f: func(a int64, b int64, idx int) int64 { return a + b }, input: []int64{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -161,7 +161,7 @@ func TestReduceInt64(t *testing.T) {
 
 func TestReduceUint8(t *testing.T) {
 	type args struct {
-		f     func(uint8, uint8) uint8
+		f     func(uint8, uint8, int) uint8
 		input []uint8
 	}
 	tests := []struct {
@@ -171,7 +171,7 @@ func TestReduceUint8(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a uint8, b uint8) uint8 { return a + b }, input: []uint8{1, 2, 3, 4}},
+			args:       args{f: func(a uint8, b uint8, idx int) uint8 { return a + b }, input: []uint8{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -186,7 +186,7 @@ func TestReduceUint8(t *testing.T) {
 
 func TestReduceUint16(t *testing.T) {
 	type args struct {
-		f     func(uint16, uint16) uint16
+		f     func(uint16, uint16, int) uint16
 		input []uint16
 	}
 	tests := []struct {
@@ -196,7 +196,7 @@ func TestReduceUint16(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a uint16, b uint16) uint16 { return a + b }, input: []uint16{1, 2, 3, 4}},
+			args:       args{f: func(a uint16, b uint16, idx int) uint16 { return a + b }, input: []uint16{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -211,7 +211,7 @@ func TestReduceUint16(t *testing.T) {
 
 func TestReduceUint32(t *testing.T) {
 	type args struct {
-		f     func(uint32, uint32) uint32
+		f     func(uint32, uint32, int) uint32
 		input []uint32
 	}
 	tests := []struct {
@@ -221,7 +221,7 @@ func TestReduceUint32(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a uint32, b uint32) uint32 { return a + b }, input: []uint32{1, 2, 3, 4}},
+			args:       args{f: func(a uint32, b uint32, idx int) uint32 { return a + b }, input: []uint32{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -236,7 +236,7 @@ func TestReduceUint32(t *testing.T) {
 
 func TestReduceUint64(t *testing.T) {
 	type args struct {
-		f     func(uint64, uint64) uint64
+		f     func(uint64, uint64, int) uint64
 		input []uint64
 	}
 	tests := []struct {
@@ -246,7 +246,7 @@ func TestReduceUint64(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a uint64, b uint64) uint64 { return a + b }, input: []uint64{1, 2, 3, 4}},
+			args:       args{f: func(a uint64, b uint64, idx int) uint64 { return a + b }, input: []uint64{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -261,7 +261,7 @@ func TestReduceUint64(t *testing.T) {
 
 func TestReduceFloat32(t *testing.T) {
 	type args struct {
-		f     func(float32, float32) float32
+		f     func(float32, float32, int) float32
 		input []float32
 	}
 	tests := []struct {
@@ -271,7 +271,7 @@ func TestReduceFloat32(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a float32, b float32) float32 { return a + b }, input: []float32{1, 2, 3, 4}},
+			args:       args{f: func(a float32, b float32, idx int) float32 { return a + b }, input: []float32{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -286,7 +286,7 @@ func TestReduceFloat32(t *testing.T) {
 
 func TestReduceFloat64(t *testing.T) {
 	type args struct {
-		f     func(float64, float64) float64
+		f     func(float64, float64, int) float64
 		input []float64
 	}
 	tests := []struct {
@@ -296,7 +296,7 @@ func TestReduceFloat64(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a float64, b float64) float64 { return a + b }, input: []float64{1, 2, 3, 4}},
+			args:       args{f: func(a float64, b float64, idx int) float64 { return a + b }, input: []float64{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -311,7 +311,7 @@ func TestReduceFloat64(t *testing.T) {
 
 func TestReduceByte(t *testing.T) {
 	type args struct {
-		f     func(byte, byte) byte
+		f     func(byte, byte, int) byte
 		input []byte
 	}
 	tests := []struct {
@@ -321,7 +321,7 @@ func TestReduceByte(t *testing.T) {
 	}{
 		{
 			name:       "sum",
-			args:       args{f: func(a byte, b byte) byte { return a + b }, input: []byte{1, 2, 3, 4}},
+			args:       args{f: func(a byte, b byte, idx int) byte { return a + b }, input: []byte{1, 2, 3, 4}},
 			wantOutput: 10,
 		},
 	}
@@ -336,7 +336,7 @@ func TestReduceByte(t *testing.T) {
 
 func TestReduce(t *testing.T) {
 	type args struct {
-		f     func(any, any) any
+		f     func(any, any, int) any
 		input []any
 	}
 	tests := []struct {
@@ -346,7 +346,7 @@ func TestReduce(t *testing.T) {
 	}{
 		{
 			name:       "output as string",
-			args:       args{f: func(a any, b any) any { return fmt.Sprint(a) + fmt.Sprint(b) }, input: []any{"a", "bb", 3, 4}},
+			args:       args{f: func(a any, b any, idx int) any { return fmt.Sprint(a) + fmt.Sprint(b) }, input: []any{"a", "bb", 3, 4}},
 			wantOutput: "<nil>abb34",
 		},
 	}

@@ -12,13 +12,14 @@ import (
 
 // Watcher 监控文件添加行
 type Watcher struct {
-	f     *os.File
-	r     *bufio.Reader
-	close chan bool
+	f       *os.File
+	r       *bufio.Reader
+	watcher *fsnotify.Watcher
+	close   chan bool
 }
 
-// New 初始化一个监控程序
-func New(filename string) (w *Watcher, oldValue string, err error) {
+// NewWatcher 初始化一个监控程序
+func NewWatcher(filename string) (w *Watcher, oldValue string, err error) {
 	f, err := os.OpenFile(filename, os.O_RDONLY|os.O_CREATE, os.ModePerm)
 	if err != nil {
 		return
@@ -33,36 +34,40 @@ func New(filename string) (w *Watcher, oldValue string, err error) {
 	oldValue = string(b)
 
 	w = &Watcher{
-		f:     f,
-		r:     bufio.NewReader(f),
-		close: make(chan bool),
+		f:       f,
+		r:       bufio.NewReader(f),
+		close:   make(chan bool),
+		watcher: nil,
 	}
 	return
 }
 
 // Close 结束监控，关闭文件
 func (w *Watcher) Close() {
-	w.close <- true
+	if w.watcher != nil {
+		w.watcher.Close()
+	}
 	w.f.Close()
+	w.close <- true
 }
 
 // Watch 开始进行监控
 func (w *Watcher) Watch(callback func(line string)) (err error) {
 
 	//添加要监控的对象，文件或文件夹
-	watch, err := fsnotify.NewWatcher()
+	w.watcher, err = fsnotify.NewWatcher()
 	if err != nil {
 		return
 	}
 
-	err = watch.Add(w.f.Name())
+	err = w.watcher.Add(w.f.Name())
 	if err != nil {
 		return
 	}
 
 	for {
 		select {
-		case ev := <-watch.Events:
+		case ev := <-w.watcher.Events:
 			if ev.Op&fsnotify.Write == fsnotify.Write {
 				// 监控到文件写入
 				for {
@@ -79,9 +84,10 @@ func (w *Watcher) Watch(callback func(line string)) (err error) {
 					}
 				}
 			}
-		case err = <-watch.Errors:
+		case err = <-w.watcher.Errors:
 			return
 		case <-w.close:
+			w.Close()
 			return nil
 		}
 	}
